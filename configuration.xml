@@ -3,13 +3,13 @@
   <generalSettings>
     <option key="#Board#" value="board.custom"/>
     <option key="CPU" value="RA8P1"/>
-    <option key="Core" value="CM85"/>
+    <option key="Core" value="CPU0"/>
     <option key="#TargetName#" value="R7KA8P1KFLCAC"/>
     <option key="#TargetARCHITECTURE#" value="cortex-m85"/>
     <option key="#DeviceCommand#" value="R7KA8P1KF"/>
     <option key="#RTOS#" value="rtos.awsfreertos"/>
     <option key="#pinconfiguration#" value="R7KA8P1KFLCAC.pincfg"/>
-    <option key="#FSPVersion#" value="5.4.0"/>
+    <option key="#FSPVersion#" value="5.7.0-beta.0"/>
     <option key="#SELECTED_TOOLCHAIN#" value="clang_arm"/>
     <option key="#ToolchainVersion#" value="18.1.3"/>
   </generalSettings>
@@ -115,6 +115,7 @@
       <property id="config.bsp.fsp.mcu.sci_b_uart.max_baud" value="20000000"/>
       <property id="config.bsp.fsp.mcu.sci_b_uart.ctspen_channels" value="0x03FF"/>
       <property id="config.bsp.fsp.mcu.adc.sample_and_hold" value="1"/>
+      <property id="config.bsp.fsp.mcu.adc.sensors_are_exclusive" value="0"/>
       <property id="config.bsp.fsp.mcu.sci_spi.max_bitrate" value="30000000"/>
       <property id="config.bsp.fsp.mcu.spi.max_bitrate" value="60000000"/>
       <property id="config.bsp.fsp.mcu.iic_master.rate.rate_fastplus" value="1"/>
@@ -130,7 +131,7 @@
       <property id="config.bsp.fsp.mcu.canfd.max_data_rate_hz" value="8"/>
       <property id="config.bsp.fsp.mcu.adc_dmac.samples_per_channel" value="32767"/>
       <property id="config.bsp.fsp.mcu.sci_b_lin.max_baud" value="7812500"/>
-      <property id="config.bsp.fsp.dcache" value="config.bsp.fsp.dcache.disabled"/>
+      <property id="config.bsp.fsp.dcache" value="config.bsp.fsp.dcache.enabled"/>
     </config>
     <config id="config.bsp.ra">
       <property id="config.bsp.common.main" value="0x400"/>
@@ -157,8 +158,8 @@
     <node id="board.clock.moco.freq" option="board.clock.moco.freq.8m"/>
     <node id="board.clock.subclk.freq" option="board.clock.subclk.freq.32768"/>
     <node id="board.clock.pll.source" option="board.clock.pll.source.xtal"/>
-    <node id="board.clock.pll.div" option="board.clock.pll.div.1"/>
-    <node id="board.clock.pll.mul" option="board.clock.pll.mul.83_33"/>
+    <node id="board.clock.pll.div" option="board.clock.pll.div.3"/>
+    <node id="board.clock.pll.mul" option="board.clock.pll.mul.250_00"/>
     <node id="board.clock.pll.display" option="board.clock.pll.display.value"/>
     <node id="board.clock.pll1p.div" option="board.clock.pll1p.div.2"/>
     <node id="board.clock.pll1p.display" option="board.clock.pll1p.display.value"/>
@@ -167,10 +168,10 @@
     <node id="board.clock.pll1r.div" option="board.clock.pll1r.div.2"/>
     <node id="board.clock.pll1r.display" option="board.clock.pll1r.display.value"/>
     <node id="board.clock.pll2.source" option="board.clock.pll2.source.xtal"/>
-    <node id="board.clock.pll2.div" option="board.clock.pll2.div.2"/>
-    <node id="board.clock.pll2.mul" option="board.clock.pll2.mul.100_00"/>
+    <node id="board.clock.pll2.div" option="board.clock.pll2.div.1"/>
+    <node id="board.clock.pll2.mul" option="board.clock.pll2.mul.68_33"/>
     <node id="board.clock.pll2.display" option="board.clock.pll2.display.value"/>
-    <node id="board.clock.pll2p.div" option="board.clock.pll2p.div.6"/>
+    <node id="board.clock.pll2p.div" option="board.clock.pll2p.div.4"/>
     <node id="board.clock.pll2p.display" option="board.clock.pll2p.display.value"/>
     <node id="board.clock.pll2q.div" option="board.clock.pll2q.div.2"/>
     <node id="board.clock.pll2q.display" option="board.clock.pll2q.display.value"/>
@@ -178,7 +179,7 @@
     <node id="board.clock.pll2r.display" option="board.clock.pll2r.display.value"/>
     <node id="board.clock.clock.source" option="board.clock.clock.source.pll1p"/>
     <node id="board.clock.clkout.source" option="board.clock.clkout.source.disabled"/>
-    <node id="board.clock.sciclk.source" option="board.clock.sciclk.source.pll2q"/>
+    <node id="board.clock.sciclk.source" option="board.clock.sciclk.source.pll2p"/>
     <node id="board.clock.spiclk.source" option="board.clock.spiclk.source.disabled"/>
     <node id="board.clock.canfdclk.source" option="board.clock.canfdclk.source.disabled"/>
     <node id="board.clock.gptclk.source" option="board.clock.gptclk.source.disabled"/>
@@ -186,7 +187,7 @@
     <node id="board.clock.i3cclk.source" option="board.clock.i3cclk.source.disabled"/>
     <node id="board.clock.uck.source" option="board.clock.uck.source.disabled"/>
     <node id="board.clock.u60ck.source" option="board.clock.u60ck.source.disabled"/>
-    <node id="board.clock.octaspiclk.source" option="board.clock.octaspiclk.source.pll2p"/>
+    <node id="board.clock.octaspiclk.source" option="board.clock.octaspiclk.source.disabled"/>
     <node id="board.clock.adcclk.source" option="board.clock.adcclk.source.disabled"/>
     <node id="board.clock.cpuclk.div" option="board.clock.cpuclk.div.1"/>
     <node id="board.clock.cpuclk1.div" option="board.clock.cpuclk1.div.4"/>
@@ -207,11 +208,11 @@
     <node id="board.clock.spiclk.div" option="board.clock.spiclk.div.8"/>
     <node id="board.clock.canfdclk.div" option="board.clock.canfdclk.div.10"/>
     <node id="board.clock.gptclk.div" option="board.clock.gptclk.div.4"/>
-    <node id="board.clock.lcdclk.div" option="board.clock.lcdclk.div.1"/>
+    <node id="board.clock.lcdclk.div" option="board.clock.lcdclk.div.2"/>
     <node id="board.clock.i3cclk.div" option="board.clock.i3cclk.div.5"/>
     <node id="board.clock.uck.div" option="board.clock.uck.div.5"/>
     <node id="board.clock.u60ck.div" option="board.clock.u60ck.div.5"/>
-    <node id="board.clock.octaspiclk.div" option="board.clock.octaspiclk.div.2"/>
+    <node id="board.clock.octaspiclk.div" option="board.clock.octaspiclk.div.4"/>
     <node id="board.clock.adcclk.div" option="board.clock.adcclk.div.4"/>
     <node id="board.clock.cpuclk.display" option="board.clock.cpuclk.display.value"/>
     <node id="board.clock.cpuclk1.display" option="board.clock.cpuclk1.display.value"/>
@@ -242,81 +243,81 @@
     <node id="board.clock.adcclk.display" option="board.clock.adcclk.display.value"/>
   </raClockConfiguration>
   <raComponentSelection>
-    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="5.4.0">
-      <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RA.5.4.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_ioport" variant="" vendor="Renesas" version="5.4.0">
-      <description>I/O Port</description>
-      <originalPack>Renesas.RA.5.4.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="RTOS" condition="" group="FreeRTOS" subgroup="all" variant="" vendor="AWS" version="10.6.1+fsp.5.4.0">
-      <description>FreeRTOS</description>
-      <originalPack>Amazon.FreeRTOS-Kernel.10.6.1+fsp.5.4.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="CMSIS" condition="" group="CMSIS5" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.5.4.0">
-      <description>Arm CMSIS Version 6 - Core (M)</description>
-      <originalPack>Arm.CMSIS6.6.1.0+fsp.5.4.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Middleware" condition="" group="all" subgroup="rm_freertos_port" variant="" vendor="Renesas" version="5.4.0">
-      <description>FreeRTOS Port</description>
-      <originalPack>Renesas.RA.5.4.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="Board" subgroup="custom" variant="" vendor="Renesas" version="5.4.0">
+    <component apiversion="" class="BSP" condition="" group="Board" subgroup="custom" variant="" vendor="Renesas" version="5.7.0-beta.0">
       <description>Custom Board Support Files</description>
-      <originalPack>Renesas.RA_board_custom.5.4.0.pack</originalPack>
+      <originalPack>Renesas.RA_board_custom.5.7.0-beta.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="ra8p1" subgroup="device" variant="R7KA8P1KFLCAC" vendor="Renesas" version="5.4.0">
-      <description>Board support package for R7KA8P1KFLCAC</description>
-      <originalPack>Renesas.RA_mcu_ra8p1.5.4.0.pack</originalPack>
+    <component apiversion="" class="RTOS" condition="" group="FreeRTOS" subgroup="all" variant="" vendor="AWS" version="10.6.1+fsp.5.7.0.beta.0">
+      <description>FreeRTOS</description>
+      <originalPack>Amazon.FreeRTOS-Kernel.10.6.1+fsp.5.7.0.beta.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="ra8p1" subgroup="device" variant="" vendor="Renesas" version="5.4.0">
-      <description>Board support package for RA8P1</description>
-      <originalPack>Renesas.RA_mcu_ra8p1.5.4.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="ra8p1" subgroup="fsp" variant="" vendor="Renesas" version="5.4.0">
-      <description>Board support package for RA8P1 - FSP Data</description>
-      <originalPack>Renesas.RA_mcu_ra8p1.5.4.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="ra8p1" subgroup="events" variant="" vendor="Renesas" version="5.4.0">
-      <description>Board support package for RA8P1 - Events</description>
-      <originalPack>Renesas.RA_mcu_ra8p1.5.4.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_drw" variant="" vendor="Renesas" version="5.4.0">
-      <description>TES D/AVE 2D Port</description>
-      <originalPack>Renesas.RA.5.4.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_glcdc" variant="" vendor="Renesas" version="5.4.0">
-      <description>Graphics LCD Controller</description>
-      <originalPack>Renesas.RA.5.4.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_gpt" variant="" vendor="Renesas" version="5.4.0">
-      <description>General PWM Timer</description>
-      <originalPack>Renesas.RA.5.4.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_icu" variant="" vendor="Renesas" version="5.4.0">
-      <description>External Interrupt</description>
-      <originalPack>Renesas.RA.5.4.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_iic_master" variant="" vendor="Renesas" version="5.4.0">
-      <description>I2C Master Interface</description>
-      <originalPack>Renesas.RA.5.4.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Middleware" condition="" group="all" subgroup="rm_comms_i2c" variant="" vendor="Renesas" version="5.4.0">
-      <description>I2C Communications Implementation</description>
-      <originalPack>Renesas.RA.5.4.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="TES" condition="" group="all" subgroup="dave2d" variant="" vendor="Renesas" version="3.8.0+fsp.5.4.0">
-      <description>TES DAVE 2D Drawing Engine</description>
-      <originalPack>TES.Dave2D.3.8.0+fsp.5.4.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Heaps" condition="" group="FreeRTOS" subgroup="heap_4" variant="" vendor="AWS" version="10.6.1+fsp.5.4.0">
+    <component apiversion="" class="Heaps" condition="" group="FreeRTOS" subgroup="heap_4" variant="" vendor="AWS" version="10.6.1+fsp.5.7.0.beta.0">
       <description>FreeRTOS - Memory Management - Heap 4</description>
-      <originalPack>Amazon.FreeRTOS-Kernel.10.6.1+fsp.5.4.0.pack</originalPack>
+      <originalPack>Amazon.FreeRTOS-Kernel.10.6.1+fsp.5.7.0.beta.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_sci_b_uart" variant="" vendor="Renesas" version="5.4.0">
+    <component apiversion="" class="BSP" condition="" group="ra8p1" subgroup="device" variant="R7KA8P1KFLCAC" vendor="Renesas" version="5.7.0-beta.0">
+      <description>Board support package for R7KA8P1KFLCAC</description>
+      <originalPack>Renesas.RA_mcu_ra8p1.5.7.0-beta.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="ra8p1" subgroup="device" variant="" vendor="Renesas" version="5.7.0-beta.0">
+      <description>Board support package for RA8P1</description>
+      <originalPack>Renesas.RA_mcu_ra8p1.5.7.0-beta.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="ra8p1" subgroup="fsp" variant="" vendor="Renesas" version="5.7.0-beta.0">
+      <description>Board support package for RA8P1 - FSP Data</description>
+      <originalPack>Renesas.RA_mcu_ra8p1.5.7.0-beta.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="ra8p1" subgroup="events" variant="" vendor="Renesas" version="5.7.0-beta.0">
+      <description>Board support package for RA8P1 - Events</description>
+      <originalPack>Renesas.RA_mcu_ra8p1.5.7.0-beta.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="TES" condition="" group="all" subgroup="dave2d" variant="" vendor="Renesas" version="3.8.0+fsp.5.7.0.beta.0">
+      <description>TES DAVE 2D Drawing Engine</description>
+      <originalPack>TES.Dave2D.3.8.0+fsp.5.7.0.beta.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="CMSIS" condition="" group="CMSIS5" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.5.7.0.beta.0">
+      <description>Arm CMSIS Version 6 - Core (M)</description>
+      <originalPack>Arm.CMSIS6.6.1.0+fsp.5.7.0.beta.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="5.7.0-beta.0">
+      <description>Board Support Package Common Files</description>
+      <originalPack>Renesas.RA.5.7.0-beta.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_drw" variant="" vendor="Renesas" version="5.7.0-beta.0">
+      <description>TES D/AVE 2D Port</description>
+      <originalPack>Renesas.RA.5.7.0-beta.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_glcdc" variant="" vendor="Renesas" version="5.7.0-beta.0">
+      <description>Graphics LCD Controller</description>
+      <originalPack>Renesas.RA.5.7.0-beta.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_gpt" variant="" vendor="Renesas" version="5.7.0-beta.0">
+      <description>General PWM Timer</description>
+      <originalPack>Renesas.RA.5.7.0-beta.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_icu" variant="" vendor="Renesas" version="5.7.0-beta.0">
+      <description>External Interrupt</description>
+      <originalPack>Renesas.RA.5.7.0-beta.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_iic_master" variant="" vendor="Renesas" version="5.7.0-beta.0">
+      <description>I2C Master Interface</description>
+      <originalPack>Renesas.RA.5.7.0-beta.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_ioport" variant="" vendor="Renesas" version="5.7.0-beta.0">
+      <description>I/O Port</description>
+      <originalPack>Renesas.RA.5.7.0-beta.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_sci_b_uart" variant="" vendor="Renesas" version="5.7.0-beta.0">
       <description>SCI UART</description>
-      <originalPack>Renesas.RA.5.4.0.pack</originalPack>
+      <originalPack>Renesas.RA.5.7.0-beta.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Middleware" condition="" group="all" subgroup="rm_freertos_port" variant="" vendor="Renesas" version="5.7.0-beta.0">
+      <description>FreeRTOS Port</description>
+      <originalPack>Renesas.RA.5.7.0-beta.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Middleware" condition="" group="all" subgroup="rm_comms_i2c" variant="" vendor="Renesas" version="5.7.0-beta.0">
+      <description>I2C Communications Implementation</description>
+      <originalPack>Renesas.RA.5.7.0-beta.0.pack</originalPack>
     </component>
   </raComponentSelection>
   <raElcConfiguration/>
@@ -402,7 +403,7 @@
       <property id="module.driver.timer.capture_b_ipl" value="_disabled"/>
       <property id="module.driver.timer.trough_ipl" value="_disabled"/>
       <property id="module.driver.timer.extra" value="module.driver.timer.extra.disabled"/>
-      <property id="module.driver.timer.poeg_link" value="module.driver.timer.poeg_link.poeg_link_poeg0"/>
+      <property id="module.driver.timer.poeg_link" value="enum.driver.poeg.channels.poeg_link_poeg0"/>
       <property id="module.driver.timer.output_disable" value=""/>
       <property id="module.driver.timer.adc_trigger" value=""/>
       <property id="module.driver.timer.adc_a_compare_match" value="0"/>
@@ -434,7 +435,7 @@
       <property id="module.driver.display.input0.buffer_name" value="fb_background"/>
       <property id="module.driver.display.input0.buffer_number" value="2"/>
       <property id="module.driver.display.input0.section" value=".sdram"/>
-      <property id="module.driver.display.input0.format" value="module.driver.display.input0.format.in_format_16bits_rgb565"/>
+      <property id="module.driver.display.input0.format" value="module.driver.display.input0.format.in_format_32bits_rgb888"/>
       <property id="module.driver.display.input0.line_descending_enable" value="module.driver.display.input0.line_descending_enable.false"/>
       <property id="module.driver.display.input0.lines_repeat_enable" value="module.driver.display.input0.lines_repeat_enable.false"/>
       <property id="module.driver.display.input0.lines_repeat_times" value="0"/>
@@ -479,7 +480,7 @@
       <property id="module.driver.display.tcon_vsync" value="module.driver.display.tcon_vsync.tcon_pin_0"/>
       <property id="module.driver.display.tcon_de" value="module.driver.display.tcon_de.tcon_pin_2"/>
       <property id="module.driver.display.clksrc" value="module.driver.display.clksrc.clk_src_internal"/>
-      <property id="module.driver.display.clock_div_ratio" value="module.driver.display.clock_div_ratio.panel_clk_divisor_4"/>
+      <property id="module.driver.display.clock_div_ratio" value="module.driver.display.clock_div_ratio.panel_clk_divisor_8"/>
       <property id="module.driver.display.correction_proc_order" value="module.driver.display.correction_proc_order.correction_proc_order_brightness_contrast2gamma"/>
       <property id="module.driver.display.output.brightness.enable" value="module.driver.display.output.brightness.false"/>
       <property id="module.driver.display.output.brightness.r" value="512"/>
@@ -1076,6 +1077,21 @@
       <configSetting altId="sdram.sdclk.pa15" configurationId="sdram.sdclk"/>
       <configSetting altId="sdram.sdcs.p813" configurationId="sdram.sdcs"/>
       <configSetting altId="sdram.we.pa08" configurationId="sdram.we"/>
+    </pincfg>
+    <pincfg active="false" name="R7KA8T2CDECAB.pincfg" selected="false" symbol="">
+      <configSetting altId="jtag_fslash_swd.mode.jtag.free" configurationId="jtag_fslash_swd.mode"/>
+      <configSetting altId="jtag_fslash_swd.tck.p211" configurationId="jtag_fslash_swd.tck"/>
+      <configSetting altId="jtag_fslash_swd.tdi.p208" configurationId="jtag_fslash_swd.tdi"/>
+      <configSetting altId="jtag_fslash_swd.tdo.p209" configurationId="jtag_fslash_swd.tdo"/>
+      <configSetting altId="jtag_fslash_swd.tms.p210" configurationId="jtag_fslash_swd.tms"/>
+      <configSetting altId="p208.jtag_fslash_swd.tdi" configurationId="p208"/>
+      <configSetting altId="p208.gpio_mode.gpio_mode_peripheral" configurationId="p208.gpio_mode"/>
+      <configSetting altId="p209.jtag_fslash_swd.tdo" configurationId="p209"/>
+      <configSetting altId="p209.gpio_mode.gpio_mode_peripheral" configurationId="p209.gpio_mode"/>
+      <configSetting altId="p210.jtag_fslash_swd.tms" configurationId="p210"/>
+      <configSetting altId="p210.gpio_mode.gpio_mode_peripheral" configurationId="p210.gpio_mode"/>
+      <configSetting altId="p211.jtag_fslash_swd.tck" configurationId="p211"/>
+      <configSetting altId="p211.gpio_mode.gpio_mode_peripheral" configurationId="p211.gpio_mode"/>
     </pincfg>
   </raPinConfiguration>
 </raConfiguration>

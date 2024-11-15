@@ -9,6 +9,7 @@ static uint32_t non_idle_time_sum;
 static uint32_t task_switch_timestamp;
 static bool idle_task_running;
 
+#if 0
 void lv_freertos_task_switch_in(const char * name)
 {
     if(strcmp(name, "IDLE")) idle_task_running = false;
@@ -38,6 +39,7 @@ uint32_t lv_os_get_idle_percent(void)
 
     return pct;
 }
+#endif
 
 void timer_tick_callback(timer_callback_args_t *p_args)
 {
