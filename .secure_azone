@@ -67,6 +67,12 @@
             <slot name="P902" secure="true"/>
             <slot name="P903" secure="true"/>
             <slot name="P904" secure="true"/>
+            <slot name="P910" secure="true"/>
+            <slot name="P911" secure="true"/>
+            <slot name="P912" secure="true"/>
+            <slot name="P913" secure="true"/>
+            <slot name="P914" secure="true"/>
+            <slot name="P915" secure="true"/>
         </peripheral>
         <peripheral name="PORTA" group="PORT">
             <slot name="PA00" secure="true"/>
@@ -76,6 +82,14 @@
             <slot name="PA04" secure="true"/>
             <slot name="PA05" secure="true"/>
             <slot name="PA06" secure="true"/>
+            <slot name="PA08" secure="true"/>
+            <slot name="PA09" secure="true"/>
+            <slot name="PA10" secure="true"/>
+            <slot name="PA11" secure="true"/>
+            <slot name="PA12" secure="true"/>
+            <slot name="PA13" secure="true"/>
+            <slot name="PA14" secure="true"/>
+            <slot name="PA15" secure="true"/>
         </peripheral>
         <peripheral name="PORTB" group="PORT">
             <slot name="PB00" secure="true"/>
@@ -115,9 +129,9 @@
         <peripheral name="ICU_EXT_IRQ">
             <slot name="ICU_EXT_IRQ19" secure="true"/>
         </peripheral>
-        <peripheral name="GPT0" group="GPT" security=""/>
-        <peripheral name="GLCDC" security=""/>
-        <peripheral name="IIC1" group="IIC" security=""/>
+        <peripheral name="GPT0" group="GPT" security="s"/>
+        <peripheral name="GLCDC" security="s"/>
+        <peripheral name="IIC1" group="IIC" security="s"/>
         <peripheral name="ICU">
             <slot name="IRQ0" secure="true"/>
             <slot name="IRQ1" secure="true"/>

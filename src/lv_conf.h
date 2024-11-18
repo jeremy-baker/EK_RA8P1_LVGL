@@ -27,7 +27,7 @@
  *====================*/
 
 /** Color depth: 1 (I1), 8 (L8), 16 (RGB565), 24 (RGB888), 32 (XRGB8888) */
-#define LV_COLOR_DEPTH 24
+#define LV_COLOR_DEPTH 32
 
 /*=========================
    STDLIB WRAPPER SETTINGS
@@ -69,7 +69,7 @@
 
 #if LV_USE_STDLIB_MALLOC == LV_STDLIB_BUILTIN
     /** Size of memory available for `lv_malloc()` in bytes (>= 2kB) */
-    #define LV_MEM_SIZE (64 * 1024U)          /**< [bytes] */
+    #define LV_MEM_SIZE (128 * 1024U)          /**< [bytes] */
 
     /** Size of the memory expand for `lv_malloc()` in bytes */
     #define LV_MEM_POOL_EXPAND_SIZE 0
@@ -376,8 +376,8 @@
 #define LV_USE_ASSERT_OBJ           0   /**< Check the object's type and existence (e.g. not deleted). (Slow) */
 
 /** Add a custom handler when assert happens e.g. to restart MCU. */
-#define LV_ASSERT_HANDLER_INCLUDE <stdint.h>
-#define LV_ASSERT_HANDLER while(1);     /**< Halt by default */
+#define LV_ASSERT_HANDLER_INCLUDE "bsp_api.h"
+#define LV_ASSERT_HANDLER __BKPT(0);     /**< Halt by default */
 
 /*-------------
  * Debug
@@ -474,6 +474,10 @@
     /** Enable multi-thread render */
     #define LV_VG_LITE_THORVG_THREAD_RENDER 0
 #endif
+
+/* Enable the multi-touch gesture recognition feature */
+/* Gesture recognition requires the use of floats */
+#define LV_USE_GESTURE_RECOGNITION 0
 
 /*=====================
  *  COMPILER SETTINGS
@@ -1169,7 +1173,7 @@
 #define LV_USE_GENERIC_MIPI (LV_USE_ST7735 | LV_USE_ST7789 | LV_USE_ST7796 | LV_USE_ILI9341)
 
 /** Driver for Renesas GLCD */
-#define LV_USE_RENESAS_GLCDC    0
+#define LV_USE_RENESAS_GLCDC    1
 
 /** Driver for ST LTDC */
 #define LV_USE_ST_LTDC    0
