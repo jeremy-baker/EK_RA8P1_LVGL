@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Configs>
     <History>
+        <Keyword>pllccr2</Keyword>
+        <Keyword>BCKACR</Keyword>
+        <Keyword>prcr</Keyword>
+        <Keyword>BCLKACR</Keyword>
+        <Keyword>BCLKACKCR</Keyword>
         <Keyword>BCKADIVCR</Keyword>
     </History>
 </Configs>

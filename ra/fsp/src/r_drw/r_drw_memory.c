@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2020 - 2024 Renesas Electronics Corporation and/or its affiliates
+* Copyright (c) 2020 - 2025 Renesas Electronics Corporation and/or its affiliates
 *
 * SPDX-License-Identifier: BSD-3-Clause
 */
@@ -324,7 +324,7 @@ d1_int_t d1_cacheblockflush (d1_device * handle, d1_int_t memtype, const void * 
     FSP_PARAMETER_NOT_USED(memtype);
     FSP_PARAMETER_NOT_USED(ptr);
     FSP_PARAMETER_NOT_USED(size);
-
+    
 #if defined(RENESAS_CORTEX_M85) && (BSP_CFG_DCACHE_ENABLED)
     SCB_CleanInvalidateDCache_by_Addr((void *)ptr, (int32_t)size);
 #endif
