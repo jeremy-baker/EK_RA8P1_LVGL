@@ -257,7 +257,7 @@ FSP Configuration
     GPTCLK Src: PLL2P
     GPTCLK Div /2
     GPT Src: GPTCLK
-    LCDCLK Src: PLL2R
+    LCDCLK Src: PLL1R
     LCDCLK Div /2
     I3CCLK Src: PLL2Q
     I3CCLK Div /5
