@@ -46,29 +46,6 @@ void R_BSP_WarmStart(bsp_warm_start_event_t event)
         R_IOPORT_Open (&IOPORT_CFG_CTRL, &IOPORT_CFG_NAME);
 
 #if BSP_CFG_SDRAM_ENABLED
-
-        uint16_t prcr = R_SYSTEM->PRCR;
-
-        R_SYSTEM->PRCR = 0xA500 | (prcr | 0x1);
-
-        R_SYSTEM->BCKACR_b.CKSREQ = 1;
-
-        while(0 == R_SYSTEM->BCKACR_b.CKSRDY);
-
-        R_SYSTEM->BCKACR_b.CKSEL = 8;//PLL1R
-
-        R_SYSTEM->BCKADIVCR_b.CKDIV = 4;// /8
-
-        R_SYSTEM->BCKCR_b.BCLKDIV = 0;
-
-        R_SYSTEM->BCKCR_b.EBCKASEL = 1; //BCLKA
-
-        R_SYSTEM->BCKACR_b.CKSREQ = 0;
-
-        while(1 == R_SYSTEM->BCKACR_b.CKSRDY);
-
-        R_SYSTEM->PRCR = 0xA500 | prcr;
-
         /* Setup SDRAM and initialize it. Must configure pins first. */
         R_BSP_SdramInit(true);
 #endif

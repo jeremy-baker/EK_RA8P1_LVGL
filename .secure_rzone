@@ -6,26 +6,38 @@
     </device>
     <resources>
         <memories>
-            <memory name="RAM" type="RAM" start="0x22000000" size="0x00200000" security=""/>
-            <memory name="FLASH" type="ROM" start="0x02000000" size="0x00100000" security=""/>
-            <memory name="DATA_FLASH" type="ROM" start="0x27000000" size="0x00000000" security=""/>
-            <memory name="OPTION_SETTING" type="ROM" start="0x00000000" size="0x00000000" security=""/>
-            <memory name="OPTION_SETTING_S" type="ROM" start="0x80000000" size="0x00000000" security=""/>
-            <memory name="ID_CODE" type="ROM" start="0x00000000" size="0x00000000" security=""/>
-            <memory name="SDRAM" type="RAM" start="0x68000000" size="0x08000000" security=""/>
-            <memory name="QSPI_FLASH" type="ROM" start="0x60000000" size="0x0" security=""/>
-            <memory name="OSPI_DEVICE_0" type="ROM" start="0x80000000" size="0x10000000" security=""/>
-            <memory name="OSPI_DEVICE_1" type="ROM" start="0x90000000" size="0x10000000" security=""/>
-            <memory name="ITCM" type="ROM" start="0x00000000" size="0x00010000" security=""/>
-            <memory name="DTCM" type="RAM" start="0x20000000" size="0x00010000" security=""/>
-            <memory name="NS_OFFSET" type="ROM" start="0x10000000" size="0" security=""/>
-            <memory name="RAM_NS" type="RAM" start="0x32000000" physical="0x22000000" size="0x00200000" security="n"/>
-            <memory name="FLASH_NS" type="ROM" start="0x12000000" physical="0x02000000" size="0x00100000" security="n"/>
-            <memory name="DATA_FLASH_NS" type="ROM" start="0x37000000" physical="0x27000000" size="0x00000000" security="n"/>
-            <memory name="OPTION_SETTING_NS" type="ROM" start="0x0" size="0x0" security="n"/>
-            <memory name="OPTION_SETTING_S_NS" type="ROM" start="0x80000000" size="0x0" security="n"/>
-            <memory name="ITCM_NS" type="ROM" start="0x10000000" physical="0x00000000" size="0x00010000" security="n"/>
-            <memory name="DTCM_NS" type="RAM" start="0x30000000" physical="0x20000000" size="0x00010000" security="n"/>
+            <memory name="RAM_NS" type="RAM" start="0x32000000" physical="0x22000000" size="0x00200000" access="rwx" security="n" info="On chip RAM memory @nsAlign:0x00002000"/>
+            <memory name="RAM" type="RAM" start="0x22000000" size="0x00200000" access="rwx" security="s" info="On chip RAM memory @nscAlign:0x00000040"/>
+            <memory name="FLASH_NS" type="ROM" start="0x12000000" physical="0x02000000" size="0x00100000" access="rx" security="n" info="On chip mram memory @nsAlign:0x00008000"/>
+            <memory name="FLASH" type="ROM" start="0x02000000" size="0x00100000" access="rx" security="s" info="On chip mram memory @nscAlign:0x00000040"/>
+            <memory name="DATA_FLASH_NS" type="ROM" start="0x37000000" physical="0x27000000" size="0x00000000" access="rx" security="n" info="On chip data flash memory @nsAlign:0x00000400"/>
+            <memory name="DATA_FLASH" type="ROM" start="0x27000000" size="0x00000000" access="rx" security="s" info="On chip data flash memory"/>
+            <memory name="SDRAM" type="RAM" start="0x68000000" size="0x08000000" access="rwx" security="" info="external sdram region"/>
+            <memory name="OSPI0_CS0" type="RAM" start="0x80000000" size="0x10000000" access="rwx" security="" info="external ospi0 cs0 (ram)"/>
+            <memory name="OSPI0_CS1" type="ROM" start="0x90000000" size="0x10000000" access="rx" security="" info="external ospi0 cs1 (rom)"/>
+            <memory name="OSPI1_CS0" type="RAM" start="0x70000000" size="0x08000000" access="rwx" security="" info="external ospi1 cs0 (ram)"/>
+            <memory name="OSPI1_CS1" type="ROM" start="0x78000000" size="0x08000000" access="rx" security="" info="external ospi1 cs1 (rom)"/>
+            <memory name="OPTION_SETTING_OFS0" type="ROM" start="0x02c9f040" size="0x00000004" access="r" security="s" info="Option Function Select Register 0"/>
+            <memory name="OPTION_SETTING_OFS2" type="ROM" start="0x02c9f044" size="0x00000004" access="r" security="s" info="Option Function Select Register 2"/>
+            <memory name="OPTION_SETTING_SAS" type="ROM" start="0x02c9f074" size="0x00000004" access="r" security="s" info="Startup Area Setting Register"/>
+            <memory name="OPTION_SETTING_OFS1" type="ROM" start="0x12c9f4c0" size="0x00000004" access="r" security="n" info="Option Function Select Register 1"/>
+            <memory name="OPTION_SETTING_OFS1_SEC" type="ROM" start="0x02c9f0c0" size="0x00000004" access="r" security="s" info="Option Function Select Register 1 Secure"/>
+            <memory name="OPTION_SETTING_OFS1_SEL" type="ROM" start="0x02c9f120" size="0x00000004" access="r" security="s" info="OFS1 Register Select"/>
+            <memory name="OPTION_SETTING_OFS3" type="ROM" start="0x12c9f4c4" size="0x00000004" access="r" security="n" info="Option Function Select Register 3"/>
+            <memory name="OPTION_SETTING_OFS3_SEC" type="ROM" start="0x02c9f0c4" size="0x00000004" access="r" security="s" info="Option Function Select Register 3 Secure"/>
+            <memory name="OPTION_SETTING_OFS3_SEL" type="ROM" start="0x02c9f124" size="0x00000004" access="r" security="s" info="OFS3 Register Select"/>
+            <memory name="OPTION_SETTING_BPS" type="ROM" start="0x12c9f600" size="0x00000080" access="r" security="n" info="Block Protect Setting Register"/>
+            <memory name="OPTION_SETTING_BPS_SEC" type="ROM" start="0x02c9f200" size="0x00000080" access="r" security="s" info="Block Protect Setting Register Secure"/>
+            <memory name="OPTION_SETTING_OTP_PBPS_SEC" type="ROM" start="0x02e07700" size="0x00000080" access="r" security="s" info="Permanent Block Protect Setting Register Secure"/>
+            <memory name="OPTION_SETTING_OTP_PBPS" type="ROM" start="0x12e07780" size="0x00000080" access="r" security="n" info="Permanent Block Protect Setting Register"/>
+            <memory name="ITCM_NS" type="RAM" start="0x10000000" physical="0x00000000" size="0x00020000" access="rwx" security="n" Pname="CPU0" info="internal instruction tightly coupled memory @nsAlign:0x00002000"/>
+            <memory name="ITCM" type="RAM" start="0x00000000" size="0x00020000" access="rwx" security="s" Pname="CPU0" info="internal instruction tightly coupled memory"/>
+            <memory name="DTCM_NS" type="RAM" start="0x30000000" physical="0x20000000" size="0x00020000" access="rwx" security="n" Pname="CPU0" info="internal data tightly coupled memory @nsAlign:0x00002000"/>
+            <memory name="DTCM" type="RAM" start="0x20000000" size="0x00020000" access="rwx" security="s" Pname="CPU0" info="internal data tightly coupled memory"/>
+            <memory name="CTCM_NS" type="RAM" start="0x10000000" physical="0x00000000" size="0x00010000" access="rwx" security="n" Pname="CPU1" info="internal code tightly coupled memory @nsAlign:0x00002000"/>
+            <memory name="CTCM" type="RAM" start="0x00000000" size="0x00010000" access="rwx" security="s" Pname="CPU1" info="internal code tightly coupled memory"/>
+            <memory name="STCM_NS" type="RAM" start="0x30000000" physical="0x20000000" size="0x00010000" access="rwx" security="n" Pname="CPU1" info="internal system tightly coupled memory @nsAlign:0x00002000"/>
+            <memory name="STCM" type="RAM" start="0x20000000" size="0x00010000" access="rwx" security="s" Pname="CPU1" info="internal system tightly coupled memory"/>
         </memories>
         <peripherals>
             <group name="ACMPHS" start="0x40236000" size="0x00000100" info="High Speed Analog Comparator">
@@ -59,7 +71,17 @@
             </group>
             <peripheral name="DEBUG" start="0x4001b000" size="0x00000000" info="Debug Function"/>
             <peripheral name="DMA" start="0x4000a800" size="0x00000010" info="DMA Controller Common"/>
-            <group name="DMA_DMAC" start="0x4000a000" size="0x00000040" info="DMA Controller">
+            <group name="DMA_DMAC" start="0x4000a000" size="0x00000040" Pname="CPU0" info="DMA Controller">
+                <peripheral name="DMA_DMAC0" start="0x4000a000" size="0x00000040"/>
+                <peripheral name="DMA_DMAC1" start="0x4000a040" size="0x00000040"/>
+                <peripheral name="DMA_DMAC2" start="0x4000a080" size="0x00000040"/>
+                <peripheral name="DMA_DMAC3" start="0x4000a0c0" size="0x00000040"/>
+                <peripheral name="DMA_DMAC4" start="0x4000a100" size="0x00000040"/>
+                <peripheral name="DMA_DMAC5" start="0x4000a140" size="0x00000040"/>
+                <peripheral name="DMA_DMAC6" start="0x4000a180" size="0x00000040"/>
+                <peripheral name="DMA_DMAC7" start="0x4000a1c0" size="0x00000040"/>
+            </group>
+            <group name="DMA_DMAC" start="0x4000a000" size="0x00000040" Pname="CPU1" info="DMA Controller">
                 <peripheral name="DMA_DMAC0" start="0x4000a000" size="0x00000040"/>
                 <peripheral name="DMA_DMAC1" start="0x4000a040" size="0x00000040"/>
                 <peripheral name="DMA_DMAC2" start="0x4000a080" size="0x00000040"/>
@@ -71,8 +93,8 @@
             </group>
             <peripheral name="DOC" start="0x40311000" size="0x00000010" info="Data Operation Circuit"/>
             <peripheral name="DRW" start="0x40444000" size="0x00000100" info="2D Drawing Engine"/>
-            <peripheral name="DSILINK" start="0x40346000" size="0x00000100" info="MIPI Display Serial Interface (DSI-2) Host"/>
-            <peripheral name="DTC" start="0x4000ac00" size="0x00000100" info="Data Transfer Controller"/>
+            <peripheral name="DTC" start="0x4000ac00" size="0x00000100" Pname="CPU0" info="Data Transfer Controller"/>
+            <peripheral name="DTC" start="0x4000ac00" size="0x00000100" Pname="CPU1" info="Data Transfer Controller"/>
             <group name="ECCMB" start="0x4036f200" size="0x00000040" info="ECC Control">
                 <peripheral name="ECCMB0" start="0x4036f200" size="0x00000040"/>
                 <peripheral name="ECCMB1" start="0x4036f300" size="0x00000040"/>
@@ -139,7 +161,105 @@
             <group name="I3C" start="0x4035f000" size="0x00000400" info="I3C Bus Interface">
                 <peripheral name="I3C0" start="0x4035f000" size="0x00000400"/>
             </group>
-            <peripheral name="ICU" start="0x40006000" size="0x00000100" info="Interrupt Controller Unit">
+            <peripheral name="ICU" start="0x40006000" size="0x00000100" Pname="CPU0" info="Interrupt Controller Unit">
+                <slot name="IRQ0"/>
+                <slot name="IRQ1"/>
+                <slot name="IRQ2"/>
+                <slot name="IRQ3"/>
+                <slot name="IRQ4"/>
+                <slot name="IRQ5"/>
+                <slot name="IRQ6"/>
+                <slot name="IRQ7"/>
+                <slot name="IRQ8"/>
+                <slot name="IRQ9"/>
+                <slot name="IRQ10"/>
+                <slot name="IRQ11"/>
+                <slot name="IRQ12"/>
+                <slot name="IRQ13"/>
+                <slot name="IRQ14"/>
+                <slot name="IRQ15"/>
+                <slot name="IRQ16"/>
+                <slot name="IRQ17"/>
+                <slot name="IRQ18"/>
+                <slot name="IRQ19"/>
+                <slot name="IRQ20"/>
+                <slot name="IRQ21"/>
+                <slot name="IRQ22"/>
+                <slot name="IRQ23"/>
+                <slot name="IRQ24"/>
+                <slot name="IRQ25"/>
+                <slot name="IRQ26"/>
+                <slot name="IRQ27"/>
+                <slot name="IRQ28"/>
+                <slot name="IRQ29"/>
+                <slot name="IRQ30"/>
+                <slot name="IRQ31"/>
+                <slot name="IRQ32"/>
+                <slot name="IRQ33"/>
+                <slot name="IRQ34"/>
+                <slot name="IRQ35"/>
+                <slot name="IRQ36"/>
+                <slot name="IRQ37"/>
+                <slot name="IRQ38"/>
+                <slot name="IRQ39"/>
+                <slot name="IRQ40"/>
+                <slot name="IRQ41"/>
+                <slot name="IRQ42"/>
+                <slot name="IRQ43"/>
+                <slot name="IRQ44"/>
+                <slot name="IRQ45"/>
+                <slot name="IRQ46"/>
+                <slot name="IRQ47"/>
+                <slot name="IRQ48"/>
+                <slot name="IRQ49"/>
+                <slot name="IRQ50"/>
+                <slot name="IRQ51"/>
+                <slot name="IRQ52"/>
+                <slot name="IRQ53"/>
+                <slot name="IRQ54"/>
+                <slot name="IRQ55"/>
+                <slot name="IRQ56"/>
+                <slot name="IRQ57"/>
+                <slot name="IRQ58"/>
+                <slot name="IRQ59"/>
+                <slot name="IRQ60"/>
+                <slot name="IRQ61"/>
+                <slot name="IRQ62"/>
+                <slot name="IRQ63"/>
+                <slot name="IRQ64"/>
+                <slot name="IRQ65"/>
+                <slot name="IRQ66"/>
+                <slot name="IRQ67"/>
+                <slot name="IRQ68"/>
+                <slot name="IRQ69"/>
+                <slot name="IRQ70"/>
+                <slot name="IRQ71"/>
+                <slot name="IRQ72"/>
+                <slot name="IRQ73"/>
+                <slot name="IRQ74"/>
+                <slot name="IRQ75"/>
+                <slot name="IRQ76"/>
+                <slot name="IRQ77"/>
+                <slot name="IRQ78"/>
+                <slot name="IRQ79"/>
+                <slot name="IRQ80"/>
+                <slot name="IRQ81"/>
+                <slot name="IRQ82"/>
+                <slot name="IRQ83"/>
+                <slot name="IRQ84"/>
+                <slot name="IRQ85"/>
+                <slot name="IRQ86"/>
+                <slot name="IRQ87"/>
+                <slot name="IRQ88"/>
+                <slot name="IRQ89"/>
+                <slot name="IRQ90"/>
+                <slot name="IRQ91"/>
+                <slot name="IRQ92"/>
+                <slot name="IRQ93"/>
+                <slot name="IRQ94"/>
+                <slot name="IRQ95"/>
+            </peripheral>
+            <peripheral name="ICU" start="0x40006000" size="0x00000100" Pname="CPU1" info="Interrupt Controller Unit">
                 <slot name="IRQ0"/>
                 <slot name="IRQ1"/>
                 <slot name="IRQ2"/>
@@ -283,7 +403,9 @@
             </group>
             <peripheral name="IPC" start="0x40020000" size="0x00000130" info="Inter-Processor Communication"/>
             <peripheral name="IWDT" start="0x40202200" size="0x00000100" info="Independent Watchdog Timer"/>
+            <peripheral name="MIPI_CSI" start="0x40347000" size="0x00000400" info="MIPI Camera Serial Interface"/>
             <peripheral name="MIPI_DSI" start="0x40346000" size="0x00001000" info="MIPI Display Serial Interface"/>
+            <peripheral name="MIPI_PHY" start="0x40346c00" size="0x00000100" info="MIPI D-PHY"/>
             <group name="MPU" start="0x40000000" size="0x00001000" info="Memory Protection Unit">
                 <peripheral name="MPU0" start="0x40000000" size="0x00001000"/>
             </group>
