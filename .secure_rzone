@@ -6,8 +6,8 @@
     </device>
     <resources>
         <memories>
-            <memory name="RAM_NS" type="RAM" start="0x32000000" physical="0x22000000" size="0x00200000" access="rwx" security="n" info="On chip RAM memory @nsAlign:0x00002000"/>
-            <memory name="RAM" type="RAM" start="0x22000000" size="0x00200000" access="rwx" security="s" info="On chip RAM memory @nscAlign:0x00000040"/>
+            <memory name="RAM_NS" type="RAM" start="0x32000000" physical="0x22000000" size="0x001d4000" access="rwx" security="n" info="On chip RAM memory @nsAlign:0x00002000"/>
+            <memory name="RAM" type="RAM" start="0x22000000" size="0x001d4000" access="rwx" security="s" info="On chip RAM memory @nscAlign:0x00000040"/>
             <memory name="FLASH_NS" type="ROM" start="0x12000000" physical="0x02000000" size="0x00100000" access="rx" security="n" info="On chip mram memory @nsAlign:0x00008000"/>
             <memory name="FLASH" type="ROM" start="0x02000000" size="0x00100000" access="rx" security="s" info="On chip mram memory @nscAlign:0x00000040"/>
             <memory name="DATA_FLASH_NS" type="ROM" start="0x37000000" physical="0x27000000" size="0x00000000" access="rx" security="n" info="On chip data flash memory @nsAlign:0x00000400"/>
