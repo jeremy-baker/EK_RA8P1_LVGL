@@ -186,8 +186,8 @@
             <slot name="ICU_EXT_IRQ19.CPU0" secure="true"/>
         </peripheral>
         <peripheral name="GPT0.CPU0" group="GPT" security="s"/>
-        <peripheral name="GLCDC.CPU0" security="s"/>
         <peripheral name="IIC1.CPU0" group="IIC" security="s"/>
+        <peripheral name="GLCDC.CPU0" security="s"/>
         <peripheral name="ICU.CPU0">
             <slot name="IRQ0.CPU0" secure="true"/>
             <slot name="IRQ1.CPU0" secure="true"/>

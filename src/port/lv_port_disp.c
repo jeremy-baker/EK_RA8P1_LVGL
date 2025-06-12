@@ -49,8 +49,12 @@ void lv_port_disp_init(void)
     /*------------------------------------
      * Create a display and set a flush_cb
      * -----------------------------------*/
-    lv_display_t * disp = lv_renesas_glcdc_direct_create();
-    FSP_PARAMETER_NOT_USED(disp);
+    fsp_err_t err;
+    err = RM_LVGL_PORT_Open(&g_lvgl_port_ctrl, &g_lvgl_port_cfg);
+    if (FSP_SUCCESS != err)
+    {
+        __BKPT(0);
+    }
 
     /* Enable Backlight */
     R_IOPORT_PinWrite(&g_ioport_ctrl, LCD_BLEN, BSP_IO_LEVEL_HIGH);

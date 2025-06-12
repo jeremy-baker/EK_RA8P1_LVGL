@@ -441,6 +441,14 @@
       <description>I2C Communications Implementation</description>
       <originalPack>Renesas.RA.6.0.0-beta.3.pack</originalPack>
     </component>
+    <component apiversion="" class="Middleware" condition="" group="all" subgroup="rm_lvgl_port" variant="" vendor="Renesas" version="6.0.0-beta.3">
+      <description>LVGL Port</description>
+      <originalPack>Renesas.RA.6.0.0-beta.3.pack</originalPack>
+    </component>
+    <component apiversion="" class="GUI" condition="" group="all" subgroup="lvgl" variant="" vendor="LVGL" version="9.3.0+renesas.0.fsp.6.0.0.beta.3">
+      <description>LVGL</description>
+      <originalPack>LVGL.lvgl.9.3.0+renesas.0.fsp.6.0.0.beta.3.pack</originalPack>
+    </component>
   </raComponentSelection>
   <raElcConfiguration/>
   <raIcuConfiguration/>
@@ -752,10 +760,12 @@
       <property id="module.driver.uart.tei_ipl" value="board.icu.common.irq.priority12"/>
       <property id="module.driver.uart.eri_ipl" value="board.icu.common.irq.priority12"/>
     </module>
-    <object id="rtos.awsfreertos.object.binary_semaphore.988033303">
-      <property id="rtos.awsfreertos.object.binary_semaphore.symbol" value="_SemaphoreVsync"/>
-      <property id="rtos.awsfreertos.object.binary_semaphore.allocation" value="rtos.awsfreertos.object.binary_semaphore.allocation.static"/>
-    </object>
+    <module id="module.lvgl.lvgl.1763482917"/>
+    <module id="module.middleware.rm_lvgl_port.330100297">
+      <property id="module.middleware.rm_lvgl_port.name" value="g_rm_lvgl_port0"/>
+      <property id="module.middleware.rm_lvgl_port.display_cfg_inheritance" value="module.middleware.rm_lvgl_port.display_cfg_inheritance.layer1"/>
+      <property id="module.middleware.rm_lvgl_port.p_callback" value="NULL"/>
+    </module>
     <object id="rtos.awsfreertos.object.flags.73288200">
       <property id="rtos.awsfreertos.object.flags.symbol" value="g_i2c_event_group"/>
       <property id="rtos.awsfreertos.object.flags.allocation" value="rtos.awsfreertos.object.flags.allocation.static"/>
@@ -779,14 +789,18 @@
       <property id="rtos.awsfreertos.thread.secure_context" value="rtos.awsfreertos.thread.secure_context.enable"/>
       <stack module="module.driver.external_irq_on_icu.1749016280"/>
       <stack module="module.driver.timer_on_gpt.837028506"/>
-      <stack module="module.driver.drw.34055402">
-        <stack module="module.driver.tes.dave2d.1835230417" requires="module.driver.drw.requires.dave2d_driver"/>
-      </stack>
-      <stack module="module.driver.display_on_glcdc.1751298632"/>
       <stack module="module.freertos.heap.4.1477203231"/>
       <stack module="module.driver.comms_i2c_on_comms_i2c_device.766285098">
         <stack module="module.driver.comms_i2c_on_comms_i2c_bus.1911358680" requires="module.driver.comms_i2c_device.requires.comms_i2c_bus">
           <stack module="module.driver.i2c_on_iic_master.849101248" requires="module.driver.comms_i2c_bus.requires.i2c"/>
+        </stack>
+      </stack>
+      <stack module="module.lvgl.lvgl.1763482917">
+        <stack module="module.middleware.rm_lvgl_port.330100297" requires="module.lvgl.lvgl.requires.rm_lvgl_port">
+          <stack module="module.driver.display_on_glcdc.1751298632" requires="module.middleware.rm_lvgl_port.requires.display"/>
+          <stack module="module.driver.drw.34055402" requires="module.middleware.rm_lvgl_port.requires.dave2d_port">
+            <stack module="module.driver.tes.dave2d.1835230417" requires="module.driver.drw.requires.dave2d_driver"/>
+          </stack>
         </stack>
       </stack>
     </context>
@@ -816,8 +830,75 @@
     <config id="config.driver.ioport">
       <property id="config.driver.ioport.checking" value="config.driver.ioport.checking.system"/>
     </config>
+    <config id="config.lvgl.lvgl">
+      <property id="config.lvgl.lvgl.custom_lv_conf" value="lv_conf_user.h"/>
+      <property id="config.lvgl.lvgl.lv_color_depth" value="16"/>
+      <property id="config.lvgl.lvgl.lv_mem_size" value="0x20000"/>
+      <property id="config.lvgl.lvgl.lv_draw_layer_simple_buf_size" value="0x6000"/>
+      <property id="config.lvgl.lvgl.lv_draw_layer_max_memory" value="0"/>
+      <property id="config.lvgl.lvgl.lv_draw_thread_stack_size" value="0x2000"/>
+      <property id="config.lvgl.lvgl.lv_use_os" value="config.lvgl.lvgl.lv_use_os.lv_os_freertos"/>
+      <property id="config.lvgl.lvgl.lv_draw_thread_prio" value="config.lvgl.lvgl.lv_draw_thread_prio.lv_thread_prio_high"/>
+      <property id="config.lvgl.lvgl.lv_draw_sw_support_rgb565" value="config.lvgl.lvgl.lv_draw_sw_support_rgb565.enable"/>
+      <property id="config.lvgl.lvgl.lv_draw_sw_support_rgb565_swapped" value="config.lvgl.lvgl.lv_draw_sw_support_rgb565_swapped.enable"/>
+      <property id="config.lvgl.lvgl.lv_draw_sw_support_rgb565a8" value="config.lvgl.lvgl.lv_draw_sw_support_rgb565a8.enable"/>
+      <property id="config.lvgl.lvgl.lv_draw_sw_support_rgb888" value="config.lvgl.lvgl.lv_draw_sw_support_rgb888.enable"/>
+      <property id="config.lvgl.lvgl.lv_draw_sw_support_xrgb8888" value="config.lvgl.lvgl.lv_draw_sw_support_xrgb8888.enable"/>
+      <property id="config.lvgl.lvgl.lv_draw_sw_support_argb8888" value="config.lvgl.lvgl.lv_draw_sw_support_argb8888.enable"/>
+      <property id="config.lvgl.lvgl.lv_draw_sw_support_argb8888_premultiplied" value="config.lvgl.lvgl.lv_draw_sw_support_argb8888_premultiplied.enable"/>
+      <property id="config.lvgl.lvgl.lv_draw_sw_support_l8" value="config.lvgl.lvgl.lv_draw_sw_support_l8.enable"/>
+      <property id="config.lvgl.lvgl.lv_draw_sw_support_al88" value="config.lvgl.lvgl.lv_draw_sw_support_al88.enable"/>
+      <property id="config.lvgl.lvgl.lv_draw_sw_support_a8" value="config.lvgl.lvgl.lv_draw_sw_support_a8.enable"/>
+      <property id="config.lvgl.lvgl.lv_draw_sw_support_i1" value="config.lvgl.lvgl.lv_draw_sw_support_i1.enable"/>
+      <property id="config.lvgl.lvgl.lv_use_draw_dave2d" value="config.lvgl.lvgl.lv_use_draw_dave2d.enable"/>
+      <property id="config.lvgl.lvgl.lv_assert_handler_include" value="&lt;stdint.h&gt;"/>
+      <property id="config.lvgl.lvgl.lv_assert_handler" value=""/>
+      <property id="config.lvgl.lvgl.lv_use_obj_name" value="config.lvgl.lvgl.lv_use_obj_name.disable"/>
+      <property id="config.lvgl.lvgl.lv_use_gesture_recognition" value="config.lvgl.lvgl.lv_use_gesture_recognition.disable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_8" value="config.lvgl.lvgl.lv_font_montserrat_8.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_10" value="config.lvgl.lvgl.lv_font_montserrat_10.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_12" value="config.lvgl.lvgl.lv_font_montserrat_12.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_14" value="config.lvgl.lvgl.lv_font_montserrat_14.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_16" value="config.lvgl.lvgl.lv_font_montserrat_16.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_18" value="config.lvgl.lvgl.lv_font_montserrat_18.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_20" value="config.lvgl.lvgl.lv_font_montserrat_20.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_22" value="config.lvgl.lvgl.lv_font_montserrat_22.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_24" value="config.lvgl.lvgl.lv_font_montserrat_24.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_26" value="config.lvgl.lvgl.lv_font_montserrat_26.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_28" value="config.lvgl.lvgl.lv_font_montserrat_28.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_30" value="config.lvgl.lvgl.lv_font_montserrat_30.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_32" value="config.lvgl.lvgl.lv_font_montserrat_32.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_34" value="config.lvgl.lvgl.lv_font_montserrat_34.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_36" value="config.lvgl.lvgl.lv_font_montserrat_36.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_38" value="config.lvgl.lvgl.lv_font_montserrat_38.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_40" value="config.lvgl.lvgl.lv_font_montserrat_40.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_42" value="config.lvgl.lvgl.lv_font_montserrat_42.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_44" value="config.lvgl.lvgl.lv_font_montserrat_44.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_46" value="config.lvgl.lvgl.lv_font_montserrat_46.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_montserrat_48" value="config.lvgl.lvgl.lv_font_montserrat_48.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_dejavu_16_persian_hebrew" value="config.lvgl.lvgl.lv_font_dejavu_16_persian_hebrew.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_source_han_sans_sc_14_cjk" value="config.lvgl.lvgl.lv_font_source_han_sans_sc_14_cjk.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_source_han_sans_sc_16_cjk" value="config.lvgl.lvgl.lv_font_source_han_sans_sc_16_cjk.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_unscii_8" value="config.lvgl.lvgl.lv_font_unscii_8.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_unscii_16" value="config.lvgl.lvgl.lv_font_unscii_16.enable"/>
+      <property id="config.lvgl.lvgl.lv_font_default" value="lv_font_montserrat_14"/>
+      <property id="config.lvgl.lvgl.lv_use_font_placeholder" value="config.lvgl.lvgl.lv_use_font_placeholder.enable"/>
+      <property id="config.lvgl.lvgl.lv_use_bidi" value="config.lvgl.lvgl.lv_use_bidi.disable"/>
+      <property id="config.lvgl.lvgl.lv_use_arabic_persian_chars" value="config.lvgl.lvgl.lv_use_arabic_persian_chars.disable"/>
+      <property id="config.lvgl.lvgl.lv_use_ime_pinyin" value="config.lvgl.lvgl.lv_use_ime_pinyin.disable"/>
+      <property id="config.lvgl.lvgl.lv_ime_pinyin_use_default_dict" value="config.lvgl.lvgl.lv_ime_pinyin_use_default_dict.enable"/>
+      <property id="config.lvgl.lvgl.lv_ime_pinyin_cand_text_num" value="6"/>
+      <property id="config.lvgl.lvgl.lv_ime_pinyin_use_k9_mode" value="config.lvgl.lvgl.lv_ime_pinyin_use_k9_mode.enable"/>
+      <property id="config.lvgl.lvgl.lv_ime_pinyin_k9_cand_text_num" value="3"/>
+      <property id="config.lvgl.lvgl.lv_use_font_manager" value="config.lvgl.lvgl.lv_use_font_manager.disable"/>
+      <property id="config.lvgl.lvgl.lv_font_manager_name_max_len" value="32"/>
+    </config>
     <config id="config.driver.icu">
       <property id="config.driver.icu.param_checking_enable" value="config.driver.icu.param_checking_enable.bsp"/>
+    </config>
+    <config id="config.middleware.rm_lvgl_port">
+      <property id="config.middleware.rm_lvgl_port.param_checking_enable" value="config.middleware.rm_lvgl_port.param_checking_enable.bsp"/>
+      <property id="config.middleware.rm_lvgl_port.provide_tick_callback" value="config.middleware.rm_lvgl_port.provide_tick_callback.enabled"/>
     </config>
     <config id="config.awsfreertos.thread">
       <property id="config.awsfreertos.custom_freertosconfig" value=""/>

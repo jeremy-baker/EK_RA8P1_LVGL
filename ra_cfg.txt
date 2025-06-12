@@ -907,6 +907,73 @@ FSP Configuration
     DTC Support: Disable
     Flow Control Support: Disable
     
+  Module "LVGL"
+    General: Custom lv_conf.h: lv_conf_user.h
+    LVGL: Display: LV_COLOR_DEPTH: 16
+    LVGL: Memory: LV_MEM_SIZE: 0x20000
+    LVGL: Memory: LV_DRAW_LAYER_SIMPLE_BUF_SIZE: 0x6000
+    LVGL: Memory: LV_DRAW_LAYER_MAX_MEMORY: 0
+    LVGL: Memory: LV_DRAW_THREAD_STACK_SIZE: 0x2000
+    LVGL: OS Integration: LV_USE_OS: LV_OS_FREERTOS
+    LVGL: OS Integration: LV_DRAW_THREAD_PRIO: LV_THREAD_PRIO_HIGH
+    LVGL: Software Rendering: LV_DRAW_SW_SUPPORT_RGB565: Enabled
+    LVGL: Software Rendering: LV_DRAW_SW_SUPPORT_RGB565_SWAPPED: Enabled
+    LVGL: Software Rendering: LV_DRAW_SW_SUPPORT_RGB565A8: Enabled
+    LVGL: Software Rendering: LV_DRAW_SW_SUPPORT_RGB888: Enabled
+    LVGL: Software Rendering: LV_DRAW_SW_SUPPORT_XRGB8888: Enabled
+    LVGL: Software Rendering: LV_DRAW_SW_SUPPORT_ARGB8888: Enabled
+    LVGL: Software Rendering: LV_DRAW_SW_SUPPORT_ARGB8888_PREMULTIPLIED: Enabled
+    LVGL: Software Rendering: LV_DRAW_SW_SUPPORT_L8: Enabled
+    LVGL: Software Rendering: LV_DRAW_SW_SUPPORT_AL88: Enabled
+    LVGL: Software Rendering: LV_DRAW_SW_SUPPORT_A8: Enabled
+    LVGL: Software Rendering: LV_DRAW_SW_SUPPORT_I1: Enabled
+    LVGL: Hardware Rendering: LV_USE_DRAW_DAVE2D: Enabled
+    LVGL: Debug: LV_ASSERT_HANDLER_INCLUDE: <stdint.h>
+    LVGL: Debug: LV_ASSERT_HANDLER: 
+    LVGL: Widgets: LV_USE_OBJ_NAME: Disabled
+    LVGL: Input Devices: LV_USE_GESTURE_RECOGNITION: Disabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_8: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_10: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_12: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_14: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_16: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_18: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_20: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_22: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_24: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_26: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_28: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_30: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_32: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_34: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_36: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_38: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_40: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_42: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_44: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_46: Enabled
+    LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_48: Enabled
+    LVGL: Fonts: DejaVu: LV_FONT_DEJAVU_16_PERSIAN_HEBREW: Enabled
+    LVGL: Fonts: SourceHanSansSC: LV_FONT_SOURCE_HAN_SANS_SC_14_CJK: Enabled
+    LVGL: Fonts: SourceHanSansSC: LV_FONT_SOURCE_HAN_SANS_SC_16_CJK: Enabled
+    LVGL: Fonts: Unscii: LV_FONT_UNSCII_8: Enabled
+    LVGL: Fonts: Unscii: LV_FONT_UNSCII_16: Enabled
+    LVGL: Fonts: LV_FONT_DEFAULT: lv_font_montserrat_14
+    LVGL: Fonts: LV_USE_FONT_PLACEHOLDER: Enabled
+    LVGL: Fonts: LV_USE_BIDI: Disabled
+    LVGL: Fonts: LV_USE_ARABIC_PERSIAN_CHARS: Disabled
+    LVGL: Input Devices: LV_USE_IME_PINYIN: Disabled
+    LVGL: Input Devices: LV_IME_PINYIN_USE_DEFAULT_DICT: Enabled
+    LVGL: Input Devices: LV_IME_PINYIN_CAND_TEXT_NUM: 6
+    LVGL: Input Devices: LV_IME_PINYIN_USE_K9_MODE: Enabled
+    LVGL: Input Devices: LV_IME_PINYIN_K9_CAND_TEXT_NUM: 3
+    LVGL: Fonts: LV_USE_FONT_MANAGER: Disabled
+    LVGL: Fonts: LV_FONT_MANAGER_NAME_MAX_LEN: 32
+    
+  Module "LVGL Port (rm_lvgl_port)"
+    Parameter Checking: Default (BSP)
+    Provide Tick Callback: Enabled
+    
   FreeRTOS
     General: Custom FreeRTOSConfig.h: 
     General: Use Preemption: Enabled
@@ -1082,184 +1149,6 @@ FSP Configuration
       Extra Features: Output Disable: GTIOCA Disable Setting: Disable Prohibited
       Extra Features: Output Disable: GTIOCB Disable Setting: Disable Prohibited
       
-    Instance "D/AVE 2D Port Interface (r_drw)"
-      D2 Device Handle Name: d2_handle0
-      DRW Interrupt Priority: Priority 2
-      
-      Instance "D/AVE 2D (r_drw)"
-    Instance "g_display0 Graphics LCD (r_glcdc)"
-      General: Name: g_display0
-      Interrupts: Callback Function: glcdc_callback
-      Interrupts: Line Detect Interrupt Priority: Priority 12
-      Interrupts: Underflow 1 Interrupt Priority: Priority 12
-      Interrupts: Underflow 2 Interrupt Priority: Disabled
-      Input: Graphics Layer 1: General: Enabled: Yes
-      Input: Graphics Layer 1: General: Horizontal size: 1024
-      Input: Graphics Layer 1: General: Vertical size: 600
-      Input: Graphics Layer 1: General: Horizontal position: 0
-      Input: Graphics Layer 1: General: Vertical position: 0
-      Input: Graphics Layer 1: Framebuffer: Framebuffer name: fb_background
-      Input: Graphics Layer 1: Framebuffer: Number of framebuffers: 2
-      Input: Graphics Layer 1: Framebuffer: Section for framebuffer allocation: .sdram_noinit_nocache
-      Input: Graphics Layer 1: General: Color format: RGB565 (16-bit)
-      Input: Graphics Layer 1: General: Line descending mode: Disabled
-      Input: Graphics Layer 1: Line Repeat: Enable: Off
-      Input: Graphics Layer 1: Line Repeat: Repeat count: 0
-      Input: Graphics Layer 1: Fading: Mode: None
-      Input: Graphics Layer 1: Fading: Speed: 0
-      Input: Graphics Layer 2: General: Enabled: No
-      Input: Graphics Layer 2: General: Horizontal size: 480
-      Input: Graphics Layer 2: General: Vertical size: 854
-      Input: Graphics Layer 2: General: Horizontal position: 0
-      Input: Graphics Layer 2: General: Vertical position: 0
-      Input: Graphics Layer 2: Framebuffer: Framebuffer name: fb_foreground
-      Input: Graphics Layer 2: Framebuffer: Number of framebuffers: 2
-      Input: Graphics Layer 2: Framebuffer: Section for framebuffer allocation: .sdram_noinit
-      Input: Graphics Layer 2: General: Color format: RGB565 (16-bit)
-      Input: Graphics Layer 2: General: Line descending mode: Disabled
-      Input: Graphics Layer 2: Line Repeat: Enable: Off
-      Input: Graphics Layer 2: Line Repeat: Repeat count: 0
-      Input: Graphics Layer 2: Fading: Mode: None
-      Input: Graphics Layer 2: Fading: Speed: 0
-      Output: Timing: Horizontal total cycles: 1344
-      Output: Timing: Horizontal active video cycles: 1024
-      Output: Timing: Horizontal back porch cycles: 160
-      Output: Timing: Horizontal sync signal cycles: 4
-      Output: Timing: Horizontal sync signal polarity: Low active
-      Output: Timing: Vertical total lines: 635
-      Output: Timing: Vertical active video lines: 600
-      Output: Timing: Vertical back porch lines: 23
-      Output: Timing: Vertical sync signal lines: 3
-      Output: Timing: Vertical sync signal polarity: Low active
-      Output: Timing: Data Enable Signal Polarity: High active
-      Output: Timing: Sync edge: Falling edge
-      Output: Format: Color format: 24bits RGB888
-      Output: Format: Color order: RGB
-      Output: Format: Endian: Little endian
-      Output: Background: Alpha: 255
-      Output: Background: Red: 0
-      Output: Background: Green: 0
-      Output: Background: Blue: 0
-      CLUT: Enabled: No
-      CLUT: Size: 256
-      TCON: Hsync pin select: Not used
-      TCON: Vsync pin select: Not used
-      TCON: Data enable (DE) pin select: LCD_TCON2
-      TCON: Panel clock source: Internal clock (GLCDCLK)
-      TCON: Panel clock division ratio: 1/4
-      Color Correction: Process order: Brightness/contrast first
-      Color Correction: Brightness: Enabled: No
-      Color Correction: Brightness: Red channel: 512
-      Color Correction: Brightness: Green channel: 512
-      Color Correction: Brightness: Blue channel: 512
-      Color Correction: Contrast: Enabled: No
-      Color Correction: Contrast: Red channel gain: 128
-      Color Correction: Contrast: Green channel gain: 128
-      Color Correction: Contrast: Blue channel gain: 128
-      Color Correction: Gamma: Red: Off
-      Color Correction: Gamma: Green: Off
-      Color Correction: Gamma: Blue: Off
-      Color Correction: Gamma: Table Mode: Variable
-      Color Correction: Gamma: Tables: Red: Gain: 0: 1024
-      Color Correction: Gamma: Tables: Red: Gain: 1: 1024
-      Color Correction: Gamma: Tables: Red: Gain: 2: 1024
-      Color Correction: Gamma: Tables: Red: Gain: 3: 1024
-      Color Correction: Gamma: Tables: Red: Gain: 4: 1024
-      Color Correction: Gamma: Tables: Red: Gain: 5: 1024
-      Color Correction: Gamma: Tables: Red: Gain: 6: 1024
-      Color Correction: Gamma: Tables: Red: Gain: 7: 1024
-      Color Correction: Gamma: Tables: Red: Gain: 8: 1024
-      Color Correction: Gamma: Tables: Red: Gain: 9: 1024
-      Color Correction: Gamma: Tables: Red: Gain: 10: 1024
-      Color Correction: Gamma: Tables: Red: Gain: 11: 1024
-      Color Correction: Gamma: Tables: Red: Gain: 12: 1024
-      Color Correction: Gamma: Tables: Red: Gain: 13: 1024
-      Color Correction: Gamma: Tables: Red: Gain: 14: 1024
-      Color Correction: Gamma: Tables: Red: Gain: 15: 1024
-      Color Correction: Gamma: Tables: Red: Threshold: 1: 64
-      Color Correction: Gamma: Tables: Red: Threshold: 2: 128
-      Color Correction: Gamma: Tables: Red: Threshold: 3: 192
-      Color Correction: Gamma: Tables: Red: Threshold: 4: 256
-      Color Correction: Gamma: Tables: Red: Threshold: 5: 320
-      Color Correction: Gamma: Tables: Red: Threshold: 6: 384
-      Color Correction: Gamma: Tables: Red: Threshold: 7: 448
-      Color Correction: Gamma: Tables: Red: Threshold: 8: 512
-      Color Correction: Gamma: Tables: Red: Threshold: 9: 576
-      Color Correction: Gamma: Tables: Red: Threshold: 10: 640
-      Color Correction: Gamma: Tables: Red: Threshold: 11: 704
-      Color Correction: Gamma: Tables: Red: Threshold: 12: 768
-      Color Correction: Gamma: Tables: Red: Threshold: 13: 832
-      Color Correction: Gamma: Tables: Red: Threshold: 14: 896
-      Color Correction: Gamma: Tables: Red: Threshold: 15: 960
-      Color Correction: Gamma: Tables: Green: Gain: 0: 1024
-      Color Correction: Gamma: Tables: Green: Gain: 1: 1024
-      Color Correction: Gamma: Tables: Green: Gain: 2: 1024
-      Color Correction: Gamma: Tables: Green: Gain: 3: 1024
-      Color Correction: Gamma: Tables: Green: Gain: 4: 1024
-      Color Correction: Gamma: Tables: Green: Gain: 5: 1024
-      Color Correction: Gamma: Tables: Green: Gain: 6: 1024
-      Color Correction: Gamma: Tables: Green: Gain: 7: 1024
-      Color Correction: Gamma: Tables: Green: Gain: 8: 1024
-      Color Correction: Gamma: Tables: Green: Gain: 9: 1024
-      Color Correction: Gamma: Tables: Green: Gain: 10: 1024
-      Color Correction: Gamma: Tables: Green: Gain: 11: 1024
-      Color Correction: Gamma: Tables: Green: Gain: 12: 1024
-      Color Correction: Gamma: Tables: Green: Gain: 13: 1024
-      Color Correction: Gamma: Tables: Green: Gain: 14: 1024
-      Color Correction: Gamma: Tables: Green: Gain: 15: 1024
-      Color Correction: Gamma: Tables: Green: Threshold: 1: 64
-      Color Correction: Gamma: Tables: Green: Threshold: 2: 128
-      Color Correction: Gamma: Tables: Green: Threshold: 3: 192
-      Color Correction: Gamma: Tables: Green: Threshold: 4: 256
-      Color Correction: Gamma: Tables: Green: Threshold: 5: 320
-      Color Correction: Gamma: Tables: Green: Threshold: 6: 384
-      Color Correction: Gamma: Tables: Green: Threshold: 7: 448
-      Color Correction: Gamma: Tables: Green: Threshold: 8: 512
-      Color Correction: Gamma: Tables: Green: Threshold: 9: 576
-      Color Correction: Gamma: Tables: Green: Threshold: 10: 640
-      Color Correction: Gamma: Tables: Green: Threshold: 11: 704
-      Color Correction: Gamma: Tables: Green: Threshold: 12: 768
-      Color Correction: Gamma: Tables: Green: Threshold: 13: 832
-      Color Correction: Gamma: Tables: Green: Threshold: 14: 896
-      Color Correction: Gamma: Tables: Green: Threshold: 15: 960
-      Color Correction: Gamma: Tables: Blue: Gain: 0: 1024
-      Color Correction: Gamma: Tables: Blue: Gain: 1: 1024
-      Color Correction: Gamma: Tables: Blue: Gain: 2: 1024
-      Color Correction: Gamma: Tables: Blue: Gain: 3: 1024
-      Color Correction: Gamma: Tables: Blue: Gain: 4: 1024
-      Color Correction: Gamma: Tables: Blue: Gain: 5: 1024
-      Color Correction: Gamma: Tables: Blue: Gain: 6: 1024
-      Color Correction: Gamma: Tables: Blue: Gain: 7: 1024
-      Color Correction: Gamma: Tables: Blue: Gain: 8: 1024
-      Color Correction: Gamma: Tables: Blue: Gain: 9: 1024
-      Color Correction: Gamma: Tables: Blue: Gain: 10: 1024
-      Color Correction: Gamma: Tables: Blue: Gain: 11: 1024
-      Color Correction: Gamma: Tables: Blue: Gain: 12: 1024
-      Color Correction: Gamma: Tables: Blue: Gain: 13: 1024
-      Color Correction: Gamma: Tables: Blue: Gain: 14: 1024
-      Color Correction: Gamma: Tables: Blue: Gain: 15: 1024
-      Color Correction: Gamma: Tables: Blue: Threshold: 1: 64
-      Color Correction: Gamma: Tables: Blue: Threshold: 2: 128
-      Color Correction: Gamma: Tables: Blue: Threshold: 3: 192
-      Color Correction: Gamma: Tables: Blue: Threshold: 4: 256
-      Color Correction: Gamma: Tables: Blue: Threshold: 5: 320
-      Color Correction: Gamma: Tables: Blue: Threshold: 6: 384
-      Color Correction: Gamma: Tables: Blue: Threshold: 7: 448
-      Color Correction: Gamma: Tables: Blue: Threshold: 8: 512
-      Color Correction: Gamma: Tables: Blue: Threshold: 9: 576
-      Color Correction: Gamma: Tables: Blue: Threshold: 10: 640
-      Color Correction: Gamma: Tables: Blue: Threshold: 11: 704
-      Color Correction: Gamma: Tables: Blue: Threshold: 12: 768
-      Color Correction: Gamma: Tables: Blue: Threshold: 13: 832
-      Color Correction: Gamma: Tables: Blue: Threshold: 14: 896
-      Color Correction: Gamma: Tables: Blue: Threshold: 15: 960
-      Dithering: Enabled: No
-      Dithering: Mode: Truncate
-      Dithering: Pattern A: Pattern 11
-      Dithering: Pattern B: Pattern 11
-      Dithering: Pattern C: Pattern 11
-      Dithering: Pattern D: Pattern 11
-      
     Instance "FreeRTOS Heap 4"
     Instance "g_comms_i2c_device0 I2C Communication Device (rm_comms_i2c)"
       Name: g_comms_i2c_device0
@@ -1291,10 +1180,190 @@ FSP Configuration
           Callback: rm_comms_i2c_callback
           Interrupt Priority Level: Priority 12
           
-  Object "_SemaphoreVsync Binary Semaphore"
-    Symbol: _SemaphoreVsync
-    Memory Allocation: Static
-    
+    Instance "LVGL"
+      Instance "LVGL Port (rm_lvgl_port)"
+        Name: g_rm_lvgl_port0
+        Target Display Layer: Graphics Layer 1
+        Callback Function: NULL
+        
+        Instance "g_display0 Graphics LCD (r_glcdc)"
+          General: Name: g_display0
+          Interrupts: Callback Function: _rm_lvgl_port_display_callback
+          Interrupts: Line Detect Interrupt Priority: Priority 12
+          Interrupts: Underflow 1 Interrupt Priority: Priority 12
+          Interrupts: Underflow 2 Interrupt Priority: Disabled
+          Input: Graphics Layer 1: General: Enabled: Yes
+          Input: Graphics Layer 1: General: Horizontal size: 1024
+          Input: Graphics Layer 1: General: Vertical size: 600
+          Input: Graphics Layer 1: General: Horizontal position: 0
+          Input: Graphics Layer 1: General: Vertical position: 0
+          Input: Graphics Layer 1: Framebuffer: Framebuffer name: fb_background
+          Input: Graphics Layer 1: Framebuffer: Number of framebuffers: 2
+          Input: Graphics Layer 1: Framebuffer: Section for framebuffer allocation: .sdram_noinit_nocache
+          Input: Graphics Layer 1: General: Color format: RGB565 (16-bit)
+          Input: Graphics Layer 1: General: Line descending mode: Disabled
+          Input: Graphics Layer 1: Line Repeat: Enable: Off
+          Input: Graphics Layer 1: Line Repeat: Repeat count: 0
+          Input: Graphics Layer 1: Fading: Mode: None
+          Input: Graphics Layer 1: Fading: Speed: 0
+          Input: Graphics Layer 2: General: Enabled: No
+          Input: Graphics Layer 2: General: Horizontal size: 480
+          Input: Graphics Layer 2: General: Vertical size: 854
+          Input: Graphics Layer 2: General: Horizontal position: 0
+          Input: Graphics Layer 2: General: Vertical position: 0
+          Input: Graphics Layer 2: Framebuffer: Framebuffer name: fb_foreground
+          Input: Graphics Layer 2: Framebuffer: Number of framebuffers: 2
+          Input: Graphics Layer 2: Framebuffer: Section for framebuffer allocation: .sdram_noinit
+          Input: Graphics Layer 2: General: Color format: RGB565 (16-bit)
+          Input: Graphics Layer 2: General: Line descending mode: Disabled
+          Input: Graphics Layer 2: Line Repeat: Enable: Off
+          Input: Graphics Layer 2: Line Repeat: Repeat count: 0
+          Input: Graphics Layer 2: Fading: Mode: None
+          Input: Graphics Layer 2: Fading: Speed: 0
+          Output: Timing: Horizontal total cycles: 1344
+          Output: Timing: Horizontal active video cycles: 1024
+          Output: Timing: Horizontal back porch cycles: 160
+          Output: Timing: Horizontal sync signal cycles: 4
+          Output: Timing: Horizontal sync signal polarity: Low active
+          Output: Timing: Vertical total lines: 635
+          Output: Timing: Vertical active video lines: 600
+          Output: Timing: Vertical back porch lines: 23
+          Output: Timing: Vertical sync signal lines: 3
+          Output: Timing: Vertical sync signal polarity: Low active
+          Output: Timing: Data Enable Signal Polarity: High active
+          Output: Timing: Sync edge: Falling edge
+          Output: Format: Color format: 24bits RGB888
+          Output: Format: Color order: RGB
+          Output: Format: Endian: Little endian
+          Output: Background: Alpha: 255
+          Output: Background: Red: 0
+          Output: Background: Green: 0
+          Output: Background: Blue: 0
+          CLUT: Enabled: No
+          CLUT: Size: 256
+          TCON: Hsync pin select: Not used
+          TCON: Vsync pin select: Not used
+          TCON: Data enable (DE) pin select: LCD_TCON2
+          TCON: Panel clock source: Internal clock (GLCDCLK)
+          TCON: Panel clock division ratio: 1/4
+          Color Correction: Process order: Brightness/contrast first
+          Color Correction: Brightness: Enabled: No
+          Color Correction: Brightness: Red channel: 512
+          Color Correction: Brightness: Green channel: 512
+          Color Correction: Brightness: Blue channel: 512
+          Color Correction: Contrast: Enabled: No
+          Color Correction: Contrast: Red channel gain: 128
+          Color Correction: Contrast: Green channel gain: 128
+          Color Correction: Contrast: Blue channel gain: 128
+          Color Correction: Gamma: Red: Off
+          Color Correction: Gamma: Green: Off
+          Color Correction: Gamma: Blue: Off
+          Color Correction: Gamma: Table Mode: Variable
+          Color Correction: Gamma: Tables: Red: Gain: 0: 1024
+          Color Correction: Gamma: Tables: Red: Gain: 1: 1024
+          Color Correction: Gamma: Tables: Red: Gain: 2: 1024
+          Color Correction: Gamma: Tables: Red: Gain: 3: 1024
+          Color Correction: Gamma: Tables: Red: Gain: 4: 1024
+          Color Correction: Gamma: Tables: Red: Gain: 5: 1024
+          Color Correction: Gamma: Tables: Red: Gain: 6: 1024
+          Color Correction: Gamma: Tables: Red: Gain: 7: 1024
+          Color Correction: Gamma: Tables: Red: Gain: 8: 1024
+          Color Correction: Gamma: Tables: Red: Gain: 9: 1024
+          Color Correction: Gamma: Tables: Red: Gain: 10: 1024
+          Color Correction: Gamma: Tables: Red: Gain: 11: 1024
+          Color Correction: Gamma: Tables: Red: Gain: 12: 1024
+          Color Correction: Gamma: Tables: Red: Gain: 13: 1024
+          Color Correction: Gamma: Tables: Red: Gain: 14: 1024
+          Color Correction: Gamma: Tables: Red: Gain: 15: 1024
+          Color Correction: Gamma: Tables: Red: Threshold: 1: 64
+          Color Correction: Gamma: Tables: Red: Threshold: 2: 128
+          Color Correction: Gamma: Tables: Red: Threshold: 3: 192
+          Color Correction: Gamma: Tables: Red: Threshold: 4: 256
+          Color Correction: Gamma: Tables: Red: Threshold: 5: 320
+          Color Correction: Gamma: Tables: Red: Threshold: 6: 384
+          Color Correction: Gamma: Tables: Red: Threshold: 7: 448
+          Color Correction: Gamma: Tables: Red: Threshold: 8: 512
+          Color Correction: Gamma: Tables: Red: Threshold: 9: 576
+          Color Correction: Gamma: Tables: Red: Threshold: 10: 640
+          Color Correction: Gamma: Tables: Red: Threshold: 11: 704
+          Color Correction: Gamma: Tables: Red: Threshold: 12: 768
+          Color Correction: Gamma: Tables: Red: Threshold: 13: 832
+          Color Correction: Gamma: Tables: Red: Threshold: 14: 896
+          Color Correction: Gamma: Tables: Red: Threshold: 15: 960
+          Color Correction: Gamma: Tables: Green: Gain: 0: 1024
+          Color Correction: Gamma: Tables: Green: Gain: 1: 1024
+          Color Correction: Gamma: Tables: Green: Gain: 2: 1024
+          Color Correction: Gamma: Tables: Green: Gain: 3: 1024
+          Color Correction: Gamma: Tables: Green: Gain: 4: 1024
+          Color Correction: Gamma: Tables: Green: Gain: 5: 1024
+          Color Correction: Gamma: Tables: Green: Gain: 6: 1024
+          Color Correction: Gamma: Tables: Green: Gain: 7: 1024
+          Color Correction: Gamma: Tables: Green: Gain: 8: 1024
+          Color Correction: Gamma: Tables: Green: Gain: 9: 1024
+          Color Correction: Gamma: Tables: Green: Gain: 10: 1024
+          Color Correction: Gamma: Tables: Green: Gain: 11: 1024
+          Color Correction: Gamma: Tables: Green: Gain: 12: 1024
+          Color Correction: Gamma: Tables: Green: Gain: 13: 1024
+          Color Correction: Gamma: Tables: Green: Gain: 14: 1024
+          Color Correction: Gamma: Tables: Green: Gain: 15: 1024
+          Color Correction: Gamma: Tables: Green: Threshold: 1: 64
+          Color Correction: Gamma: Tables: Green: Threshold: 2: 128
+          Color Correction: Gamma: Tables: Green: Threshold: 3: 192
+          Color Correction: Gamma: Tables: Green: Threshold: 4: 256
+          Color Correction: Gamma: Tables: Green: Threshold: 5: 320
+          Color Correction: Gamma: Tables: Green: Threshold: 6: 384
+          Color Correction: Gamma: Tables: Green: Threshold: 7: 448
+          Color Correction: Gamma: Tables: Green: Threshold: 8: 512
+          Color Correction: Gamma: Tables: Green: Threshold: 9: 576
+          Color Correction: Gamma: Tables: Green: Threshold: 10: 640
+          Color Correction: Gamma: Tables: Green: Threshold: 11: 704
+          Color Correction: Gamma: Tables: Green: Threshold: 12: 768
+          Color Correction: Gamma: Tables: Green: Threshold: 13: 832
+          Color Correction: Gamma: Tables: Green: Threshold: 14: 896
+          Color Correction: Gamma: Tables: Green: Threshold: 15: 960
+          Color Correction: Gamma: Tables: Blue: Gain: 0: 1024
+          Color Correction: Gamma: Tables: Blue: Gain: 1: 1024
+          Color Correction: Gamma: Tables: Blue: Gain: 2: 1024
+          Color Correction: Gamma: Tables: Blue: Gain: 3: 1024
+          Color Correction: Gamma: Tables: Blue: Gain: 4: 1024
+          Color Correction: Gamma: Tables: Blue: Gain: 5: 1024
+          Color Correction: Gamma: Tables: Blue: Gain: 6: 1024
+          Color Correction: Gamma: Tables: Blue: Gain: 7: 1024
+          Color Correction: Gamma: Tables: Blue: Gain: 8: 1024
+          Color Correction: Gamma: Tables: Blue: Gain: 9: 1024
+          Color Correction: Gamma: Tables: Blue: Gain: 10: 1024
+          Color Correction: Gamma: Tables: Blue: Gain: 11: 1024
+          Color Correction: Gamma: Tables: Blue: Gain: 12: 1024
+          Color Correction: Gamma: Tables: Blue: Gain: 13: 1024
+          Color Correction: Gamma: Tables: Blue: Gain: 14: 1024
+          Color Correction: Gamma: Tables: Blue: Gain: 15: 1024
+          Color Correction: Gamma: Tables: Blue: Threshold: 1: 64
+          Color Correction: Gamma: Tables: Blue: Threshold: 2: 128
+          Color Correction: Gamma: Tables: Blue: Threshold: 3: 192
+          Color Correction: Gamma: Tables: Blue: Threshold: 4: 256
+          Color Correction: Gamma: Tables: Blue: Threshold: 5: 320
+          Color Correction: Gamma: Tables: Blue: Threshold: 6: 384
+          Color Correction: Gamma: Tables: Blue: Threshold: 7: 448
+          Color Correction: Gamma: Tables: Blue: Threshold: 8: 512
+          Color Correction: Gamma: Tables: Blue: Threshold: 9: 576
+          Color Correction: Gamma: Tables: Blue: Threshold: 10: 640
+          Color Correction: Gamma: Tables: Blue: Threshold: 11: 704
+          Color Correction: Gamma: Tables: Blue: Threshold: 12: 768
+          Color Correction: Gamma: Tables: Blue: Threshold: 13: 832
+          Color Correction: Gamma: Tables: Blue: Threshold: 14: 896
+          Color Correction: Gamma: Tables: Blue: Threshold: 15: 960
+          Dithering: Enabled: No
+          Dithering: Mode: Truncate
+          Dithering: Pattern A: Pattern 11
+          Dithering: Pattern B: Pattern 11
+          Dithering: Pattern C: Pattern 11
+          Dithering: Pattern D: Pattern 11
+          
+        Instance "D/AVE 2D Port Interface (r_drw)"
+          D2 Device Handle Name: d2_handle0
+          DRW Interrupt Priority: Priority 2
+          
+          Instance "D/AVE 2D (r_drw)"
   Object "g_i2c_event_group Event Group"
     Symbol: g_i2c_event_group
     Memory Allocation: Static

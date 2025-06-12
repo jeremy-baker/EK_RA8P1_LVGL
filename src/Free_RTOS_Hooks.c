@@ -1,4 +1,4 @@
-#include "LVGL_thread.h"
+#include "new_thread0.h"
 
 
 void vApplicationMallocFailedHook(void)
