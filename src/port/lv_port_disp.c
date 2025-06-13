@@ -9,7 +9,6 @@
  *********************/
 #include "new_thread0.h"
 #include "lv_port_disp.h"
-#include "../../lvgl/src/drivers/display/renesas_glcdc/lv_renesas_glcdc.h"
 
 /*********************
  *      DEFINES
@@ -37,6 +36,34 @@ static void disp_init(void);
  *   GLOBAL FUNCTIONS
  **********************/
 
+static void glcdc_flush_finish_event(lv_event_t * event);
+
+static void glcdc_flush_finish_event(lv_event_t * event)
+{
+    FSP_PARAMETER_NOT_USED(event);
+    fsp_err_t err;
+    lv_display_t * disp;
+
+    if (LV_EVENT_FLUSH_FINISH == lv_event_get_code(event))
+    {
+        /* Enable Backlight */
+        R_IOPORT_PinWrite(&g_ioport_ctrl, LCD_BLEN, BSP_IO_LEVEL_HIGH);
+
+        disp = lv_event_get_target(event);
+
+        /* now the backlight in enabled, remove the event callback */
+        lv_display_remove_event_cb_with_user_data(disp, glcdc_flush_finish_event, NULL);
+    }
+}
+
+void lvgl_glcdc_callback(rm_lvgl_port_callback_args_t *p_arg)
+{
+    if (RM_LVGL_PORT_EVENT_UNDERFLOW == p_arg->event)
+    {
+        assert(0);
+    }
+}
+
 void lv_port_disp_init(void)
 {
     /*-------------------------
@@ -56,8 +83,7 @@ void lv_port_disp_init(void)
         __BKPT(0);
     }
 
-    /* Enable Backlight */
-    R_IOPORT_PinWrite(&g_ioport_ctrl, LCD_BLEN, BSP_IO_LEVEL_HIGH);
+    lv_display_add_event_cb(g_lvgl_port_ctrl.p_lv_display, glcdc_flush_finish_event, LV_EVENT_FLUSH_FINISH, NULL);
 }
 
 static void disp_init(void)

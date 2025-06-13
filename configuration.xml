@@ -708,7 +708,7 @@
     <module id="module.middleware.rm_lvgl_port.330100297">
       <property id="module.middleware.rm_lvgl_port.name" value="g_rm_lvgl_port0"/>
       <property id="module.middleware.rm_lvgl_port.display_cfg_inheritance" value="module.middleware.rm_lvgl_port.display_cfg_inheritance.layer1"/>
-      <property id="module.middleware.rm_lvgl_port.p_callback" value="NULL"/>
+      <property id="module.middleware.rm_lvgl_port.p_callback" value="lvgl_glcdc_callback"/>
     </module>
     <object id="rtos.awsfreertos.object.flags.73288200">
       <property id="rtos.awsfreertos.object.flags.symbol" value="g_i2c_event_group"/>

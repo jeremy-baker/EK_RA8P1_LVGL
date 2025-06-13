@@ -1127,7 +1127,7 @@ FSP Configuration
       Instance "LVGL Port (rm_lvgl_port)"
         Name: g_rm_lvgl_port0
         Target Display Layer: Graphics Layer 1
-        Callback Function: NULL
+        Callback Function: lvgl_glcdc_callback
         
         Instance "g_display0 Graphics LCD (r_glcdc)"
           General: Name: g_display0
