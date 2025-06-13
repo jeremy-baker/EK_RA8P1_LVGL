@@ -62,7 +62,6 @@ void lv_port_disp_init(void)
 
 static void disp_init(void)
 {
-    fsp_err_t err;
 
     R_IOPORT_PinWrite(&g_ioport_ctrl, LCD_RESET, BSP_IO_LEVEL_HIGH);
 

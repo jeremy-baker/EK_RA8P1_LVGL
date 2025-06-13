@@ -413,10 +413,6 @@
       <description>Graphics LCD Controller</description>
       <originalPack>Renesas.RA.6.0.0-beta.3.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_gpt" variant="" vendor="Renesas" version="6.0.0-beta.3">
-      <description>General PWM Timer</description>
-      <originalPack>Renesas.RA.6.0.0-beta.3.pack</originalPack>
-    </component>
     <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_icu" variant="" vendor="Renesas" version="6.0.0-beta.3">
       <description>External Interrupt</description>
       <originalPack>Renesas.RA.6.0.0-beta.3.pack</originalPack>
@@ -495,58 +491,6 @@
       <property id="module.driver.external_irq.clock_source_div" value="module.driver.external_irq.clock_source_div.clock_source_div_by_1"/>
       <property id="module.driver.external_irq.p_callback" value="touch_irq_callback"/>
       <property id="module.driver.external_irq.ipl" value="board.icu.common.irq.priority12"/>
-    </module>
-    <module id="module.driver.timer_on_gpt.837028506">
-      <property id="module.driver.timer.name" value="g_timer0"/>
-      <property id="module.driver.timer.channel" value="0"/>
-      <property id="module.driver.timer.mode" value="module.driver.timer.mode.mode_periodic"/>
-      <property id="module.driver.timer.period" value="1"/>
-      <property id="module.driver.timer.compare_match.a.status" value="module.driver.timer.compare_match.a.status.disabled"/>
-      <property id="module.driver.timer.compare_match.a.value" value="0"/>
-      <property id="module.driver.timer.compare_match.b.status" value="module.driver.timer.compare_match.b.status.disabled"/>
-      <property id="module.driver.timer.compare_match.b.value" value="0"/>
-      <property id="module.driver.timer.unit" value="module.driver.timer.unit.unit_period_msec"/>
-      <property id="module.driver.timer.gtior.gtioa.initial_output_level" value="module.driver.timer.gtior.gtioa.initial_output_level.low"/>
-      <property id="module.driver.timer.gtior.gtioa.cycle_end_output_level" value="module.driver.timer.gtior.gtioa.cycle_end_output_level.retain"/>
-      <property id="module.driver.timer.gtior.gtioa.compare_match_output_level" value="module.driver.timer.gtior.gtioa.compare_match_output_level.retain"/>
-      <property id="module.driver.timer.gtior.gtioa.count_stop_retain" value="module.driver.timer.gtior.gtioa.count_stop_retain.disabled"/>
-      <property id="module.driver.timer.gtior.gtiob.initial_output_level" value="module.driver.timer.gtior.gtiob.initial_output_level.low"/>
-      <property id="module.driver.timer.gtior.gtiob.cycle_end_output_level" value="module.driver.timer.gtior.gtiob.cycle_end_output_level.retain"/>
-      <property id="module.driver.timer.gtior.gtiob.compare_match_output_level" value="module.driver.timer.gtior.gtiob.compare_match_output_level.retain"/>
-      <property id="module.driver.timer.gtior.gtiob.count_stop_retain" value="module.driver.timer.gtior.gtiob.count_stop_retain.disabled"/>
-      <property id="module.driver.timer.gtior.custom_waveform_enable" value="module.driver.timer.gtior.custom_waveform_enable.disabled"/>
-      <property id="module.driver.timer.duty_cycle" value="50"/>
-      <property id="module.driver.timer.gtioca_output_enabled" value="module.driver.timer.gtioca_output_enabled.false"/>
-      <property id="module.driver.timer.gtioca_stop_level" value="module.driver.timer.gtioca_stop_level.pin_level_low"/>
-      <property id="module.driver.timer.gtiocb_output_enabled" value="module.driver.timer.gtiocb_output_enabled.false"/>
-      <property id="module.driver.timer.gtiocb_stop_level" value="module.driver.timer.gtiocb_stop_level.pin_level_low"/>
-      <property id="module.driver.timer.count_up_source" value=""/>
-      <property id="module.driver.timer.count_down_source" value=""/>
-      <property id="module.driver.timer.start_source" value=""/>
-      <property id="module.driver.timer.stop_source" value=""/>
-      <property id="module.driver.timer.clear_source" value=""/>
-      <property id="module.driver.timer.capture_a_source" value=""/>
-      <property id="module.driver.timer.capture_b_source" value=""/>
-      <property id="module.driver.timer.gtioca_filter" value="module.driver.timer.gtioc_filter.gtioc_filter_none"/>
-      <property id="module.driver.timer.gtiocb_filter" value="module.driver.timer.gtioc_filter.gtioc_filter_none"/>
-      <property id="module.driver.timer.p_callback" value="timer_tick_callback"/>
-      <property id="module.driver.timer.ipl" value="board.icu.common.irq.priority8"/>
-      <property id="module.driver.timer.capture_a_ipl" value="_disabled"/>
-      <property id="module.driver.timer.capture_b_ipl" value="_disabled"/>
-      <property id="module.driver.timer.trough_ipl" value="_disabled"/>
-      <property id="module.driver.timer.extra" value="module.driver.timer.extra.disabled"/>
-      <property id="module.driver.timer.poeg_link" value="enum.driver.poeg.channels.poeg_link_poeg0"/>
-      <property id="module.driver.timer.output_disable" value=""/>
-      <property id="module.driver.timer.adc_trigger" value=""/>
-      <property id="module.driver.timer.adc_a_compare_match" value="0"/>
-      <property id="module.driver.timer.adc_b_compare_match" value="0"/>
-      <property id="module.driver.timer.dead_time_count_up" value="0"/>
-      <property id="module.driver.timer.dead_time_count_down" value="0"/>
-      <property id="module.driver.timer.interrupt_skip.source" value="module.driver.timer.interrupt_skip.source.none"/>
-      <property id="module.driver.timer.interrupt_skip.count" value="module.driver.timer.interrupt_skip.count.count_0"/>
-      <property id="module.driver.timer.interrupt_skip.adc" value="module.driver.timer.interrupt_skip.skip_sources.interrupt_skip.adc.none"/>
-      <property id="module.driver.timer.gtioca_disable_setting" value="module.driver.timer.gtioca_disable_setting.gtioc_disable_prohibited"/>
-      <property id="module.driver.timer.gtiocb_disable_setting" value="module.driver.timer.gtiocb_disable_setting.gtioc_disable_prohibited"/>
     </module>
     <module id="module.driver.drw.34055402">
       <property id="module.driver.drw.handle_name" value="d2_handle0"/>
@@ -788,7 +732,6 @@
       <property id="rtos.awsfreertos.thread.allocation" value="rtos.awsfreertos.thread.allocation.static"/>
       <property id="rtos.awsfreertos.thread.secure_context" value="rtos.awsfreertos.thread.secure_context.enable"/>
       <stack module="module.driver.external_irq_on_icu.1749016280"/>
-      <stack module="module.driver.timer_on_gpt.837028506"/>
       <stack module="module.freertos.heap.4.1477203231"/>
       <stack module="module.driver.comms_i2c_on_comms_i2c_device.766285098">
         <stack module="module.driver.comms_i2c_on_comms_i2c_bus.1911358680" requires="module.driver.comms_i2c_device.requires.comms_i2c_bus">
@@ -817,11 +760,6 @@
       <property id="config.driver.iic_master.param_checking_enable" value="config.driver.iic_master.param_checking_enable.bsp"/>
       <property id="config.driver.iic_master.dtc_enable" value="config.driver.iic_master.dtc_enable.disabled"/>
       <property id="config.driver.iic_master.addr_mode_10_bit_enable" value="config.driver.iic_master.addr_mode_10_bit_enable.disabled"/>
-    </config>
-    <config id="config.driver.gpt">
-      <property id="config.driver.gpt.param_checking_enable" value="config.driver.gpt.param_checking_enable.bsp"/>
-      <property id="config.driver.gpt.output_support_enable" value="config.driver.gpt.output_support_enable.disabled"/>
-      <property id="config.driver.gpt.write_protect_enable" value="config.driver.gpt.write_protect_enable.disabled"/>
     </config>
     <config id="config.driver.glcdc">
       <property id="config.driver.glcdc.param_checking_enable" value="config.driver.glcdc.param_checking_enable.bsp"/>
