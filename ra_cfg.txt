@@ -57,6 +57,7 @@ FSP Configuration
     Clocks: Settling Delay (us): 150
     Main Oscillator Wait Time: 8163 cycles
     Cache settings: Data cache: Disabled
+    Cache settings: Data cache forced write-through: Disabled
     
   RA8P1 Device Options
     OFS Registers: OFS0 (Option Function Select Register 0) Settings: Disabled
