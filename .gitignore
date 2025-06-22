@@ -12,7 +12,20 @@ ra/fsp/src/r_drw/*
 ra/fsp/src/r_dtc/*
 !ra/fsp/src/r_drw/r_drw_memory.c
 !ra/fsp/src/r_dtc/r_dtc.c
-src/lvgl/*
+
+!ra/lvgl
+ra/lvgl/*
+!ra/lvgl/lvgl
+ra/lvgl/lvgl/*
+!ra/lvgl/lvgl/src
+ra/lvgl/lvgl/src/*
+!ra/lvgl/lvgl/src/draw
+ra/lvgl/lvgl/src/draw/*
+!ra/lvgl/lvgl/src/draw/renesas
+ra/lvgl/lvgl/src/draw/renesas/*
+!ra/lvgl/lvgl/src/draw/renesas/dave2d
+ra/lvgl/lvgl/src/draw/renesas/dave2d/*
+!ra/lvgl/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_image.c
 
 /JLinkLog.log
 /build/

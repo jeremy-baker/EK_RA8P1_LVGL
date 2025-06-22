@@ -9,6 +9,7 @@ FSP Configuration
     package_pins: 289
     number of cores: 2
     
+  R7KA8P1KFLCAC
   RA8P1
     series: 8
     
@@ -924,8 +925,8 @@ FSP Configuration
     LVGL: Software Rendering: LV_DRAW_SW_SUPPORT_A8: Enabled
     LVGL: Software Rendering: LV_DRAW_SW_SUPPORT_I1: Enabled
     LVGL: Hardware Rendering: LV_USE_DRAW_DAVE2D: Enabled
-    LVGL: Debug: LV_ASSERT_HANDLER_INCLUDE: <stdint.h>
-    LVGL: Debug: LV_ASSERT_HANDLER: 
+    LVGL: Debug: LV_ASSERT_HANDLER_INCLUDE: <bsp_api.h>
+    LVGL: Debug: LV_ASSERT_HANDLER: __BKPT(0);
     LVGL: Widgets: LV_USE_OBJ_NAME: Disabled
     LVGL: Input Devices: LV_USE_GESTURE_RECOGNITION: Disabled
     LVGL: Fonts: Montserrat: LV_FONT_MONTSERRAT_8: Enabled
@@ -1078,7 +1079,7 @@ FSP Configuration
     Symbol: new_thread0
     Name: New Thread
     Stack size (bytes): 8192
-    Priority: 1
+    Priority: 2
     Thread Context: NULL
     Memory Allocation: Static
     Allocate Secure Context: Enable
@@ -1189,7 +1190,7 @@ FSP Configuration
           TCON: Vsync pin select: Not used
           TCON: Data enable (DE) pin select: LCD_TCON2
           TCON: Panel clock source: Internal clock (GLCDCLK)
-          TCON: Panel clock division ratio: 1/4
+          TCON: Panel clock division ratio: 1/6
           Color Correction: Process order: Brightness/contrast first
           Color Correction: Brightness: Enabled: No
           Color Correction: Brightness: Red channel: 512
@@ -1308,6 +1309,15 @@ FSP Configuration
           DRW Interrupt Priority: Priority 2
           
           Instance "D/AVE 2D (r_drw)"
+  Thread "Touch Thread"
+    Symbol: touch_thread
+    Name: Touch Thread
+    Stack size (bytes): 2048
+    Priority: 1
+    Thread Context: NULL
+    Memory Allocation: Static
+    Allocate Secure Context: Enable
+    
   Object "g_i2c_event_group Event Group"
     Symbol: g_i2c_event_group
     Memory Allocation: Static

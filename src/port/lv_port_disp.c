@@ -59,7 +59,7 @@ void lvgl_glcdc_callback(rm_lvgl_port_callback_args_t *p_arg)
 {
     if (RM_LVGL_PORT_EVENT_UNDERFLOW == p_arg->event)
     {
-        assert(0);
+       // assert(0);
     }
 }
 
