@@ -1190,7 +1190,7 @@ FSP Configuration
           TCON: Vsync pin select: Not used
           TCON: Data enable (DE) pin select: LCD_TCON2
           TCON: Panel clock source: Internal clock (GLCDCLK)
-          TCON: Panel clock division ratio: 1/6
+          TCON: Panel clock division ratio: 1/4
           Color Correction: Process order: Brightness/contrast first
           Color Correction: Brightness: Enabled: No
           Color Correction: Brightness: Red channel: 512
@@ -1309,15 +1309,6 @@ FSP Configuration
           DRW Interrupt Priority: Priority 2
           
           Instance "D/AVE 2D (r_drw)"
-  Thread "Touch Thread"
-    Symbol: touch_thread
-    Name: Touch Thread
-    Stack size (bytes): 2048
-    Priority: 1
-    Thread Context: NULL
-    Memory Allocation: Static
-    Allocate Secure Context: Enable
-    
   Object "g_i2c_event_group Event Group"
     Symbol: g_i2c_event_group
     Memory Allocation: Static

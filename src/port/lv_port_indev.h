@@ -26,7 +26,7 @@ extern "C" {
 /*********************
  *      DEFINES
  *********************/
-#define INDEV_EVENT_DRIVEN 1
+#define INDEV_EVENT_DRIVEN 0
 
 
 /**********************

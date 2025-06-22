@@ -253,8 +253,20 @@ void touchpad_read(lv_indev_t * indev_drv, lv_indev_data_t * data)
     touchpad_get_xy(data);
 #else
     /*Save the pressed coordinates and the state*/
+    static lv_indev_state_t last_state = LV_INDEV_STATE_RELEASED;
+    static lv_point_t last_point = {.x = 0, .y = 0};
+
     if(touchpad_is_pressed()) {
         touchpad_get_xy(data);
+        last_state = data->state;
+        last_point.x = data->point.x;
+        last_point.y = data->point.y;
+    }
+    else
+    {
+        data->state   = last_state;
+        data->point.x = last_point.x;
+        data->point.y = last_point.y;
     }
 #endif
 

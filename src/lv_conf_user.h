@@ -2,7 +2,7 @@
 #define LV_CONF_USER_H_
 
 /** Build the demos */
-#define LV_BUILD_DEMOS 0
+#define LV_BUILD_DEMOS 1
 
 #if LV_BUILD_DEMOS
     /** Show some widgets. This might be required to increase `LV_MEM_SIZE`. */
