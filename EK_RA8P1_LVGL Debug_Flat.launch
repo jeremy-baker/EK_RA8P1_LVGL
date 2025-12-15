@@ -27,19 +27,19 @@
     <booleanAttribute key="com.renesas.cdt.core.startServer" value="true"/>
     <stringAttribute key="com.renesas.cdt.core.targetDevice" value="R7KA8P1KF_CPU0"/>
     <booleanAttribute key="com.renesas.cdt.core.useRemoteTarget" value="true"/>
-    <stringAttribute key="com.renesas.cdt.debug.ioview.dsf.registerSelection0" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#10;&lt;selectedRegisterList ioFilePath=&quot;/home/jimbo/.eclipse/com.renesas.platform_497969311/DebugComp/RA/IoFiles/R7KA8P1AD.svd&quot;/&gt;&#10;"/>
-    <stringAttribute key="com.renesas.cdt.launch.dsf.IO_MAP" value="${support_area_loc}../../../.."/>
+    <stringAttribute key="com.renesas.cdt.debug.ioview.dsf.registerSelection0" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;selectedRegisterList ioFilePath=&quot;C:\Users\a5094302\.eclipse\com.renesas.platform_967959062\DebugComp\RA\IoFiles\R7KA8P1AD.svd&quot;/&gt;&#13;&#10;"/>
+    <stringAttribute key="com.renesas.cdt.launch.dsf.IO_MAP" value="${support_area_loc}"/>
     <booleanAttribute key="com.renesas.cdt.launch.dsf.USE_DEFAULT_IO_MAP" value="true"/>
     <listAttribute key="com.renesas.cdt.launch.dsf.downloadImages">
         <listEntry value="|true|false|true||true|No core|INTERNAL_MEMORY||false"/>
-        <listEntry value="${workspace_loc:/${project_name}/Debug/${project_name}_no_OSPI_Data.srec}|true|true|false|0|true|No core|INTERNAL_MEMORY||false"/>
-        <listEntry value="${workspace_loc:/${project_name}/Debug/${project_name}_no_OSPI_Data.srec}|true|true|false|0|true|No core|INTERNAL_MEMORY||false"/>
+        <listEntry value="${workspace_loc:\${project_name}\Debug\${project_name}_no_OSPI_Data.srec}|true|true|false|0|true|No core|INTERNAL_MEMORY||false"/>
+        <listEntry value="${workspace_loc:/${project_name}/Debug/OSPI_Data_swapped.srec}|true|true|false|0|true|No core|INTERNAL_MEMORY||false"/>
     </listAttribute>
     <booleanAttribute key="com.renesas.cdt.launch.dsf.downloadImagesUpgradedV30" value="true"/>
     <listAttribute key="com.renesas.cdt.launch.dsf.externalFlashDestinationAddresses"/>
     <listAttribute key="com.renesas.cdt.launch.dsf.externalFlashDownloadModules"/>
     <stringAttribute key="com.renesas.cdt.launch.dsf.launchSeqType" value="com.renesas.cdt.launch.dsf.launchSequence.e2GdbServer"/>
-    <stringAttribute key="com.renesas.cdt.launch.dsf.serverPath" value="${renesas.support.targetLoc:com.renesas.ide.supportfiles.ra.debug.debugSupportFileTarget}/e2-server-gdb"/>
+    <stringAttribute key="com.renesas.cdt.launch.dsf.serverPath" value="${renesas.support.targetLoc:com.renesas.ide.supportfiles.ra.debug.debugSupportFileTarget}\e2-server-gdb"/>
     <listAttribute key="com.renesas.cdt.launch.ui.address.mruList.memoryMonitorExpression">
         <listEntry value="&amp;fb_background[1][0]"/>
         <listEntry value="fb_background"/>
@@ -120,7 +120,7 @@
     <intAttribute key="org.eclipse.cdt.debug.gdbjtag.core.delay" value="3"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.doHalt" value="false"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.doReset" value="false"/>
-    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageFileName" value="/home/jimbo/git/EK_RA8P1_LVGL/Debug/EK_RA8P1_LVGL.elf"/>
+    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageFileName" value="C:\Renesas\GIT\EK_RA8P1_LVGL\Debug\EK_RA8P1_LVGL.elf"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageOffset" value=""/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.initCommands" value=""/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.loadImage" value="false"/>
@@ -131,7 +131,7 @@
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setResume" value="false"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setStopAt" value="true"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.stopAt" value="main"/>
-    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsFileName" value="/home/jimbo/git/EK_RA8P1_LVGL/Debug/EK_RA8P1_LVGL.elf"/>
+    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsFileName" value="C:\Renesas\GIT\EK_RA8P1_LVGL\Debug\EK_RA8P1_LVGL.elf"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsOffset" value=""/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.useFileForImage" value="false"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.useFileForSymbols" value="false"/>
